@@ -18,7 +18,7 @@ const resolvers = {
   },
   Mutation: {
     addUnit: async (parent, args, context) => {
-      if (context.admin) {
+      if (context.admin.isAdmin) {
         const unit = await Unit.create(args);
 
         return unit;
@@ -58,12 +58,26 @@ const resolvers = {
 
       return { token, admin };
     },
-    addAdmin: async(parent, args) => {
-        const admin = await Admin.create(args)
-        const token = signTokenAdmin(admin);
+    addAdmin: async (parent, args) => {
+      const admin = await Admin.create(args);
+      const token = signTokenAdmin(admin);
 
-        return { token, admin }
-    }
+      return { token, admin };
+    },
+    createRequest: async (parent, { requestBody }, context) => {
+      if (context.admin) {
+        const updatedUnit = await Unit.findOneAndUpdate(
+          { _id: context.admin._id },
+          {
+            $push: { requests: { requestBody, unit: context.admin.unitNumber } },
+          },
+          { new: true, runValidators: true },
+        );
+
+        return updatedUnit
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
   },
 };
 

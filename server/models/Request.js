@@ -1,4 +1,5 @@
 const { Schema } = require('mongoose');
+const dateFormat = require('../utils/dateFormat')
 
 const requestSchema = new Schema(
   {
@@ -8,7 +9,7 @@ const requestSchema = new Schema(
       maxlength: 500,
     },
     unit: {
-      type: String,
+      type: Number,
       required: true,
     },
     createdAt: {
