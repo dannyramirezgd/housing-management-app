@@ -1,19 +1,52 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-   
-    type Auth {
-        token: ID!
-        user: User
-    }
+  type Unit {
+    unitNumber: Int
+    email: String
+    password: String
+    requestCount: Int
+    requests: [Request]
+  }
 
-    type Query {
-        me: User
-      }
-    
-      type Mutation {
-        login(email: String!, password: String!): Auth
-      }
+  type Request {
+    _id: ID
+    requestBody: String
+    unit: String
+    createdAt: String
+  }
+
+  type Admin {
+    _id: ID
+    username: String
+    email: String
+    password: String
+    isAdmin: Boolean
+    requestCount: Int
+    unitCount: Int
+  }
+
+  type UnitAuth {
+    token: ID!
+    unit: Unit
+  }
+
+  type AdminAuth {
+    token: ID!
+    admin: Admin
+  }
+
+  type Query {
+    me(unitNumber: Int!): Unit
+  }
+
+  type Mutation{
+    loginUnit(email: String!, password: String!): UnitAuth
+    loginAdmin(email: String!, password: String!): AdminAuth 
+    addUnit(email: String!, password: String!, unitNumber: Int!): Unit
+    addAdmin(username: String!, email: String!, password: String!): AdminAuth
+  }
+
 `;
 
 module.exports = typeDefs;
