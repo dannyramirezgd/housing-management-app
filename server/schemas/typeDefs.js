@@ -26,18 +26,27 @@ const typeDefs = gql`
     unitCount: Int
   }
 
-  type Auth {
+  type UnitAuth {
     token: ID!
-    user: User
+    unit: Unit
+  }
+
+  type AdminAuth {
+    token: ID!
+    admin: Admin
   }
 
   type Query {
-    me: User
+    me(unitNumber: Int!): Unit
   }
 
-  type Mutation {
-    login(email: String!, password: String!): Auth
+  type Mutation{
+    loginUnit(email: String!, password: String!): UnitAuth
+    loginAdmin(email: String!, password: String!): AdminAuth 
+    addUnit(email: String!, password: String!, unitNumber: Int!): Unit
+    addAdmin(username: String!, email: String!, password: String!): AdminAuth
   }
+
 `;
 
 module.exports = typeDefs;
