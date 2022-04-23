@@ -2,4 +2,4 @@
 const Unit = require('./Unit');
 const Admin = require('./Admin');
 
-module.exports = { Unit, Admin, Request }
+module.exports = { Unit, Admin, Request };

@@ -8,7 +8,7 @@ const typeDefs = gql`
     requestCount: Int
     requests: [Request]
   }
-  
+
   type Request {
     _id: ID
     requestBody: String

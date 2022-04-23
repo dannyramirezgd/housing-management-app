@@ -21,8 +21,8 @@ const adminSchema = new Schema(
       minlength: 6,
     },
     isAdmin: {
-        type: Boolean,
-        required: true,
+      type: Boolean,
+      required: true,
     },
     requests: [
       {
@@ -41,7 +41,7 @@ const adminSchema = new Schema(
     toJSON: {
       virtuals: true,
     },
-  }
+  },
 );
 
 // set up pre-save middleware to create password
@@ -59,12 +59,12 @@ adminSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-adminSchema.virtual('requestCount').get(function(){ 
-    return this.requests.length;
-})
+adminSchema.virtual('requestCount').get(function () {
+  return this.requests.length;
+});
 
-adminSchema.virtual('unitCount').get(function(){ 
-    return this.units.length
+adminSchema.virtual('unitCount').get(function () {
+  return this.units.length;
 });
 
 const Admin = model('Admin', adminSchema);
