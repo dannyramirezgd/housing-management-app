@@ -8,7 +8,7 @@ db.once('open', async () => {
   await Admin.deleteMany({});
   await Unit.deleteMany({});
 
-  // create Admin data.. limiting to 5.
+  // create Admin data.. limiting to 5 for now.
   const adminData = [];
 
   for (let i = 0; i < 5; i++) {
@@ -23,6 +23,14 @@ db.once('open', async () => {
   await Admin.collection.insertMany(adminData);
 
   console.log('Admin Data Seeded!');
+
+//   create Unit data..limiting to 10 for now.
+let unitData = [];
+
+for (let i = 0; i < 10; i++) {
+    const element = array[i];
+    
+}
 
   process.exit(0);
 });

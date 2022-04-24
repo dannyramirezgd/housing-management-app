@@ -15,6 +15,15 @@ const resolvers = {
 
       throw new AuthenticationError('Not loggedn in');
     },
+
+    // dk testing.
+    // get all Admins
+    admins: async () => {
+      return Admin.find()
+        .select('-__v -password')
+        .populate('units')
+        .populate('requests');
+    },
   },
   Mutation: {
     addUnit: async (parent, args, context) => {
@@ -69,12 +78,14 @@ const resolvers = {
         const updatedUnit = await Unit.findOneAndUpdate(
           { _id: context.admin._id },
           {
-            $push: { requests: { requestBody, unit: context.admin.unitNumber } },
+            $push: {
+              requests: { requestBody, unit: context.admin.unitNumber },
+            },
           },
           { new: true, runValidators: true },
         );
 
-        return updatedUnit
+        return updatedUnit;
       }
       throw new AuthenticationError('You need to be logged in!');
     },

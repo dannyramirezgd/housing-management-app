@@ -24,6 +24,9 @@ const typeDefs = gql`
     isAdmin: Boolean
     requestCount: Int
     unitCount: Int
+    # testing. DK
+    # units: [unit]
+    # requests: [request]
   }
 
   type UnitAuth {
@@ -38,16 +41,18 @@ const typeDefs = gql`
 
   type Query {
     me(unitNumber: Int!): Unit
+    # testing. DK
+    admins: [Admin]
+    admin(email: String!): Admin
   }
 
-  type Mutation{
+  type Mutation {
     loginUnit(email: String!, password: String!): UnitAuth
-    loginAdmin(email: String!, password: String!): AdminAuth 
+    loginAdmin(email: String!, password: String!): AdminAuth
     addUnit(email: String!, password: String!, unitNumber: Int!): Unit
     addAdmin(username: String!, email: String!, password: String!): AdminAuth
     createRequest(requestBody: String!): Unit
   }
-
 `;
 
 module.exports = typeDefs;
