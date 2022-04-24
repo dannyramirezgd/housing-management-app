@@ -33,13 +33,17 @@ db.once('open', async () => {
     const password = await bcrypt.hash('password', 10);
 
     unitData.push({ unitNumber, email, password });
+    await Admin.updateMany(
+      { isAdmin: true },
+      { $push: { units: unitData.unitNumber } },
+    );
   }
 
   await Unit.collection.insertMany(unitData);
 
   console.log('Unit Data Seeded!');
 
-//   need to figure out how we are going to corelate request to unit.. by unit # or _id?
+  //   need to figure out how we are going to corelate request to unit.. by unit # or _id?
 
   process.exit(0);
 });
