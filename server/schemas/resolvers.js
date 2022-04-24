@@ -15,6 +15,20 @@ const resolvers = {
 
       throw new AuthenticationError('Not loggedn in');
     },
+
+    // dk testing.
+    // get all Admins
+    admins: async (parent, arg, context) => {
+      if (context.admin) {
+        const adminData = await Admin.find({})
+          .select('-__v -password')
+          .populate('units')
+          .populate('requests');
+
+        return adminData;
+      }
+      throw new AuthenticationError('Not an administrator!');
+    },
   },
   Mutation: {
     addUnit: async (parent, args, context) => {
@@ -69,12 +83,14 @@ const resolvers = {
         const updatedUnit = await Unit.findOneAndUpdate(
           { _id: context.admin._id },
           {
-            $push: { requests: { requestBody, unit: context.admin.unitNumber } },
+            $push: {
+              requests: { requestBody, unit: context.admin.unitNumber },
+            },
           },
           { new: true, runValidators: true },
         );
 
-        return updatedUnit
+        return updatedUnit;
       }
       throw new AuthenticationError('You need to be logged in!');
     },
