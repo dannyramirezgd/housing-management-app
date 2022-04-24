@@ -29,16 +29,15 @@ const resolvers = {
       }
       throw new AuthenticationError('Not an administrator!');
     },
-    units: async() => {
-      return await Unit.find()
+    units: async () => {
+      return await Unit.find();
     },
 
     requests: async () => {
-      const requestData = await Unit.find()
-        .select('-__v -password -email')
+      const requestData = await Unit.find().select('-__v -password -email');
 
-        return requestData
-    }
+      return requestData;
+    },
   },
   Mutation: {
     addUnit: async (parent, args, context) => {
@@ -106,14 +105,13 @@ const resolvers = {
     },
     markComplete: async (parent, { unitId, requestId }) => {
       const updatedRequest = await Unit.findOneAndUpdate(
-          { _id : unitId },
-          { $set: { "requests.$[elem].isComplete" : true } },
-          { arrayFilters: [ { "elem._id":  { $eq : requestId}  } ] }
-       );
+        { _id: unitId },
+        { $set: { 'requests.$[elem].isComplete': true } },
+        { arrayFilters: [{ 'elem._id': { $eq: requestId } }], new: true },
+      );
 
-
-       return updatedRequest;
-    }
+      return updatedRequest;
+    },
   },
 };
 
