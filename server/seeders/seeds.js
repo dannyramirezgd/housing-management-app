@@ -14,7 +14,7 @@ db.once('open', async () => {
   for (let i = 0; i < 5; i++) {
     const username = faker.internet.userName();
     const email = faker.internet.email();
-    let password = await bcrypt.hash('Password', 10); //--DK hashing password (saltRound=10) Couldn't find the hook solution like sequelized.
+    const password = await bcrypt.hash('Password', 10); //--DK hashing password (saltRound=10) Couldn't find the hook solution like sequelized.
     const isAdmin = true;
 
     adminData.push({ username, email, password, isAdmin });
@@ -24,13 +24,20 @@ db.once('open', async () => {
 
   console.log('Admin Data Seeded!');
 
-//   create Unit data..limiting to 10 for now.
-let unitData = [];
+  //   create Unit data..limiting to 10 for now.
+  let unitData = [];
 
-for (let i = 0; i < 10; i++) {
-    const element = array[i];
-    
-}
+  for (let i = 0; i < 10; i++) {
+    const unitNumber = i + 1;
+    const email = faker.internet.email();
+    const password = await bcrypt.hash('password', 10);
+
+    unitData.push({ unitNumber, email, password });
+  }
+
+  await Unit.collection.insertMany(unitData);
+
+  console.log('Unit Data Seeded!');
 
   process.exit(0);
 });
