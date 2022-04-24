@@ -8,7 +8,7 @@ const Home = () => {
   const { loading, data } = useQuery(QUERY_REQUESTS);
 
   const requests = data?.requests || [];
-
+  console.log(requests)
   return (
     <main>
       {loading ? <div>Loading...</div> : <RequestList requests={requests} />}

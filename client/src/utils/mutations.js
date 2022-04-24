@@ -13,3 +13,17 @@ export const LOGIN_ADMIN = gql`
     }
   }
 `;
+
+export const MARK_COMPLETE = gql`
+  mutation markComplete($unitId: ID!, $requestId: ID!) {
+    markComplete(unitId: $unitId, requestId: $requestId) {
+      _id
+      unitNumber
+      requests{
+        _id
+        isComplete
+        requestBody
+      }
+    }
+  }
+`

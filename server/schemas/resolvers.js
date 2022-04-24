@@ -29,10 +29,13 @@ const resolvers = {
       }
       throw new AuthenticationError('Not an administrator!');
     },
+    units: async() => {
+      return await Unit.find()
+    },
 
     requests: async () => {
       const requestData = await Unit.find()
-        .select('-__v -password -unitNumber -email')
+        .select('-__v -password -email')
 
         return requestData
     }
@@ -101,6 +104,16 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    markComplete: async (parent, { unitId, requestId }) => {
+      const updatedRequest = await Unit.findOneAndUpdate(
+          { _id : unitId },
+          { $set: { "requests.$[elem].isComplete" : true } },
+          { arrayFilters: [ { "elem._id":  { $eq : requestId}  } ] }
+       );
+
+
+       return updatedRequest;
+    }
   },
 };
 

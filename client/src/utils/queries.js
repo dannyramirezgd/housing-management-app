@@ -45,11 +45,14 @@ export const QUERY_ME_BASIC = gql`
 export const QUERY_REQUESTS = gql`
   query {
     requests {
+        _id
+        unitNumber
       requests {
         _id
         requestBody
         unit
         createdAt
+        isComplete
       }
     }
   }
