@@ -45,6 +45,7 @@ const typeDefs = gql`
     loginAdmin(email: String!, password: String!): AdminAuth 
     addUnit(email: String!, password: String!, unitNumber: Int!): Unit
     addAdmin(username: String!, email: String!, password: String!): AdminAuth
+    createRequest(requestBody: String!): Unit
   }
 
 `;
