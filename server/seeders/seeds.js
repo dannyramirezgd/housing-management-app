@@ -14,25 +14,8 @@ db.once('open', async () => {
   for (let i = 0; i < 5; i++) {
     const username = faker.internet.userName();
     const email = faker.internet.email();
-    let password = await bcrypt.hash('Password', 10);
+    let password = await bcrypt.hash('Password', 10); //--DK hashing password (saltRound=10) Couldn't find the hook solution like sequelized.
     const isAdmin = true;
-
-    // bcrypt.genSalt(10, function (err, salt) {
-    //   console.log(password);
-    //   if (err) {
-    //     throw err;
-    //   } else {
-    //     bcrypt.hash(password, salt, function (error, hash) {
-    //       if (error) {
-    //         throw error;
-    //       } else {
-    //         console.log(hash);
-    //       }
-    //     });
-    //   }
-    // });
-
-    console.log(password);
 
     adminData.push({ username, email, password, isAdmin });
   }
