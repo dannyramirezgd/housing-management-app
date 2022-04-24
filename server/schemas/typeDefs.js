@@ -44,6 +44,7 @@ const typeDefs = gql`
     # testing. DK
     admins: [Admin]
     admin(email: String!): Admin
+    requests: [Unit]
   }
 
   type Mutation {

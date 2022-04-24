@@ -28,8 +28,8 @@ module.exports = {
         return req;
     },
     
-    signTokenUnit: function({email, unitNumber, _id }) {
-        const payload = { email, unitNumber, _id };
+    signTokenUnit: function({email, unitNumber, _id, isAdmin }) {
+        const payload = { email, unitNumber, _id, isAdmin: false };
 
         return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
     }, 

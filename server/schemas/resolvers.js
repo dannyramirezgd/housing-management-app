@@ -29,6 +29,13 @@ const resolvers = {
       }
       throw new AuthenticationError('Not an administrator!');
     },
+
+    requests: async () => {
+      const requestData = await Unit.find()
+        .select('-__v -password -unitNumber -email')
+
+        return requestData
+    }
   },
   Mutation: {
     addUnit: async (parent, args, context) => {
