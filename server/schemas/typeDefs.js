@@ -25,7 +25,7 @@ const typeDefs = gql`
     requestCount: Int
     unitCount: Int
     # testing. DK
-    # units: [unit]
+    units: [Unit]
     # requests: [request]
   }
 

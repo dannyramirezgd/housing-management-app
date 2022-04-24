@@ -18,11 +18,16 @@ const resolvers = {
 
     // dk testing.
     // get all Admins
-    admins: async () => {
-      return Admin.find()
-        .select('-__v -password')
-        .populate('units')
-        .populate('requests');
+    admins: async (parent, arg, context) => {
+      if (context.admin) {
+        const adminData = await Admin.find({})
+          .select('-__v -password')
+          .populate('units')
+          .populate('requests');
+
+        return adminData;
+      }
+      throw new AuthenticationError('Not an administrator!');
     },
   },
   Mutation: {
