@@ -2,6 +2,7 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
   type Unit {
+    _id: ID
     unitNumber: Int
     email: String
     password: String
@@ -14,6 +15,7 @@ const typeDefs = gql`
     requestBody: String
     unit: String
     createdAt: String
+    isComplete: Boolean
   }
 
   type Admin {
@@ -44,6 +46,8 @@ const typeDefs = gql`
     # testing. DK
     admins: [Admin]
     admin(email: String!): Admin
+    units: [Unit]
+    requests: [Unit]
   }
 
   type Mutation {
@@ -52,6 +56,7 @@ const typeDefs = gql`
     addUnit(email: String!, password: String!, unitNumber: Int!): Unit
     addAdmin(username: String!, email: String!, password: String!): AdminAuth
     createRequest(requestBody: String!): Unit
+    markComplete(unitId: ID!, requestId: ID!): Unit
   }
 `;
 

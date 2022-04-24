@@ -17,6 +17,10 @@ const requestSchema = new Schema(
       default: Date.now,
       get: (timestamp) => dateFormat(timestamp),
     },
+    isComplete: {
+      type: Boolean,
+      default: false
+    }
   },
   {
     toJSON: {
