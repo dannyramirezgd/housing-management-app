@@ -5,9 +5,9 @@ import { setContext } from '@apollo/client/link/context';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
+import NoMatch from './components/NoMatch'
 
 import Login from './pages/Login';
-import NoMatch from './pages/NoMatch';
 import UnitInfo from './pages/UnitInfo';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
