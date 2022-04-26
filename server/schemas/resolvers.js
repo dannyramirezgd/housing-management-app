@@ -107,7 +107,7 @@ const resolvers = {
       const updatedRequest = await Unit.findOneAndUpdate(
         { _id: unitId },
         { $set: { 'requests.$[elem].isComplete': true } },
-        { arrayFilters: [{ 'elem._id': { $eq: requestId } }], new: true },
+        { arrayFilters: [{ 'elem._id': { $eq: requestId } }], new: true, runValidators: true },
       );
 
       return updatedRequest;
