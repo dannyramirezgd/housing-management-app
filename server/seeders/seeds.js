@@ -49,11 +49,12 @@ db.once('open', async () => {
     const requestBody = faker.lorem.words(Math.round(Math.random() * 20) + 1);
     const randomUnit = Math.floor(Math.random() * unitData.length);
     const { _id: requestId } = unitData[randomUnit];
+    const unitNumber = randomUnit + 1;
     const isComplete = false;
 
     await Unit.updateOne(
       { _id: requestId },
-      { $push: { requests: { requestBody, unit: randomUnit, isComplete } } },
+      { $push: { requests: { requestBody, unit: unitNumber, isComplete } } },
       { runValidators: true },
     );
   }
