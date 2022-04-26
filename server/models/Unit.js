@@ -45,7 +45,7 @@ unitSchema.methods.isCorrectPassword = async function (password) {
 
 //some virtual?
 unitSchema.virtual('requestCount').get(function () {
-  return this.requests.minlength;
+  return this.requests.length;
 });
 
 const Unit = model('Unit', unitSchema);
