@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.timer_container {
+  background-image: url('../../image/NewHouseLifeStockPhoto_1.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  width: 100vw;
+  height: 100vh;
+}
+
+.timer {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 7em;
+  padding-top: 2em;
+  width: 100%;
+  height: 100%;
+}
+
+.timer div:first-child {
+  text-align: center;
+}
+
+.timer h1 {
+  font-size: 15rem;
+}
+
+.timer div:last-child {
+  border: 1px solid white;
+  border-radius: 3px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 1em;
+  text-align: center;
+}
+
+.btn {
+  background-color: rgba(32, 58, 94, 0.928);
+  color: rgb(238, 238, 238);
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 0.6em;
+  margin: 1em;
+  box-shadow: 5px 5px 5px black;
+}
