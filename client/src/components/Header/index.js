@@ -11,7 +11,7 @@ const Header = () => {
 
   return (
     <header className="bg-secondary py-2 flex-row align-center">
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
+      <div className="container flex-row justify-space-between-lg px-3 justify-center align-center">
         <Link to='/'>      
           <h1>New House Life</h1>
         </Link>
