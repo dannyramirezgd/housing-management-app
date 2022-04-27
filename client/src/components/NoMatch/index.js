@@ -3,7 +3,7 @@ import cryingTenants from '../../image/cryingFamily.png';
 import styles from './NoMatch.module.css';
 
 const NoMatch = ({ history }) => {
-  const [timerSeconds, setTimerSeconds] = useState(10);
+  const [timerSeconds, setTimerSeconds] = useState(15);
 
   let interval = useRef();
   const clear = () => {
@@ -34,7 +34,6 @@ const NoMatch = ({ history }) => {
           <button
             className={styles.btn}
             onClick={() => history.push('/')}
-            styles={{ cursor: 'pointer' }}
           >
             BACK HOME
           </button>
