@@ -1,22 +1,28 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
+import {
+  ApolloProvider,
+  ApolloClient,
+  InMemoryCache,
+  createHttpLink,
+} from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-import Header from './components/Header';
-import Footer from './components/Footer';
-import NoMatch from './components/NoMatch'
+import Header from './components/Header'; //Header Static has NAV bar
+import Footer from './components/Footer'; //Footer Static
+import NoMatch from './components/NoMatch'; //404 Page
 
-import Login from './pages/Login';
-import UnitInfo from './pages/UnitInfo';
-import Profile from './pages/Profile';
-import Signup from './pages/Signup';
+import AdminHome from './pages/AdminHome';
+import Amenities from './pages/Amenities';
+import Documents from './pages/Documents';
 import Home from './pages/Home';
-import AdminHome from './pages/AdminHome'
-
+import Profile from './pages/Profile';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import UnitInfo from './pages/UnitInfo';
 
 const httpLink = createHttpLink({
-  uri: '/graphql'
+  uri: '/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -32,23 +38,26 @@ const authLink = setContext((_, { headers }) => {
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
-})
+});
 
 function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className='flex-column justify-flex-start min-100-vh'>
+        <div className="flex-column justify-flex-start min-100-vh">
           <Header />
-          <div className='container'>
+          <div className="container">
             <Switch>
-              <Route exact path='/' component={Home} />
-              <Route exact path='/login' component={Login} />
-              <Route exact path='/signup' component={Signup} />
-              <Route exact path='/profile/:username?' component={Profile} />
-              <Route exact path='/unit/:id' component={UnitInfo} />
-              <Route exact path='/admin' component={AdminHome} />
-              
+              <Route exact path="/" component={Home} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/adminHome" component={AdminHome} />
+              <Route exact path="/profile/:username?" component={Profile} />
+              <Route exact path="/unit/:id" component={UnitInfo} />
+              <Route exact path="/admin" component={AdminHome} />
+              <Route exact path="/amenities" component={Amenities} />
+              <Route exact path="/documents" component={Documents} />
+
               <Route component={NoMatch} />
             </Switch>
           </div>

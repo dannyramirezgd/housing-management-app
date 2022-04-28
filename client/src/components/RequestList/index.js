@@ -8,7 +8,6 @@ const RequestList = () => {
   const { loading, data } = useQuery(QUERY_REQUESTS);
   const units = data?.requests || [];
   const handleCompleteButton = async (requestId, unitId) => {
-
     try {
       await deleteRequest({
         variables: { unitId, requestId },
