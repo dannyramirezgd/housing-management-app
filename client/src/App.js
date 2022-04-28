@@ -52,7 +52,7 @@ function App() {
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/adminHome" component={AdminHome} />
-              <Route exact path="/profile/:username?" component={Profile} />
+              <Route exact path="/profile/:id" component={Profile} />
               <Route exact path="/unit/:id" component={UnitInfo} />
               <Route exact path="/admin" component={AdminHome} />
               <Route exact path="/amenities" component={Amenities} />

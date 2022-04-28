@@ -19,15 +19,15 @@ const resolvers = {
     // dk testing.
     // get all Admins
     admins: async (parent, arg, context) => {
-      if (context.admin) {
-        const adminData = await Admin.find({})
-          .select('-__v -password')
-          .populate('units')
-          .populate('requests');
+      // if (context.admin) {
+      const adminData = await Admin.find({})
+        .select('-__v -password')
+        .populate('units')
+        .populate('requests');
 
-        return adminData;
-      }
-      throw new AuthenticationError('Not an administrator!');
+      return adminData;
+      // }
+      // throw new AuthenticationError('Not an administrator!');
     },
     units: async () => {
       return await Unit.find();
@@ -49,27 +49,22 @@ const resolvers = {
         throw new AuthenticationError('Not an Admin');
       }
     },
-    loginUnit: async (parent, { email, password }) => {
-      const unit = await Unit.findOne({ email });
-
-      if (!unit) {
-        throw new AuthenticationError('Incorrect credentials');
-      }
-
-      const correctPw = await unit.isCorrectPassword(password);
-
-      if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
-      }
-      const token = signTokenUnit(unit);
-
-      return { token, unit };
-    },
-    loginAdmin: async (parent, { email, password }) => {
+    login: async (parent, { email, password }) => {
       const admin = await Admin.findOne({ email });
 
       if (!admin) {
-        throw new AuthenticationError('Incorrect credentials');
+        const unit = await Unit.findOne({ email });
+        if (!unit && !admin) {
+          throw new AuthenticationError('Incorrect credentials');
+        }
+        const correctPw = await unit.isCorrectPassword(password);
+
+        if (!correctPw) {
+          throw new AuthenticationError('Incorrect credentials');
+        }
+
+        const token = signTokenUnit(unit);
+        return { token, unit }
       }
 
       const correctPw = await admin.isCorrectPassword(password);

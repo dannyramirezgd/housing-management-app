@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { LOGIN_ADMIN } from '../utils/mutations';
+import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 import { useSpring, animated } from 'react-spring';
 
@@ -12,7 +12,7 @@ const Login = (props) => {
 
   const [formState, setFormState] = useState({ email: '', password: '' });
 
-  const [loginAdmin, { error }] = useMutation(LOGIN_ADMIN);
+  const [login, { error }] = useMutation(LOGIN);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -27,13 +27,11 @@ const Login = (props) => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
     try {
-      const { data } = await loginAdmin({
+      const { data } = await login({
         variables: { ...formState },
       });
-      console.log(data);
-      Auth.login(data.loginAdmin.token);
+      Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
     }
