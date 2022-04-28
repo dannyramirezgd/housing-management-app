@@ -52,8 +52,8 @@ const typeDefs = gql`
 
   type Mutation {
     loginUnit(email: String!, password: String!): UnitAuth
-    loginAdmin(email: String!, password: String!): AdminAuth
-    addUnit(email: String!, password: String!, unitNumber: Int!): Unit
+    login(email: String!, password: String!): AdminAuth
+    addUnit(email: String!, password: String!, unitNumber: Int!, firstName: String!, lastName: String!): Unit
     addAdmin(username: String!, email: String!, password: String!): AdminAuth
     createRequest(requestBody: String!): Unit
     markComplete(unitId: ID!, requestId: ID!): Unit
