@@ -1,16 +1,19 @@
-import React from 'react';
-import RequestList from '../components/RequestList';
-import { useQuery } from '@apollo/client';
-import { QUERY_REQUESTS } from '../utils/queries';
+import React, { useState } from 'react';
+import { Modal } from 'react-bootstrap';
+import SignUpForm from '../components/Signup'
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_REQUESTS);
-
-  const units = data?.requests || [];
-
+  const [showSignModal, setShowSignModal] = useState(false);
   return (
     <main>
-      {loading ? <div>Loading...</div> : <RequestList units={units} />}
+      <button onClick={() => setShowSignModal(true)}>Create an account</button>
+      <Modal
+        size="lg"
+        show={showSignModal}
+        onHide={() => setShowSignModal(false)}
+      >
+        <SignUpForm handleModalClose={() => setShowSignModal(false)} />
+      </Modal>
     </main>
   );
 };
