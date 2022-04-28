@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { DELETE_REQUEST } from '../../utils/mutations';
 import { QUERY_REQUESTS } from '../../utils/queries';
@@ -8,11 +8,6 @@ import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const RequestList = () => {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
   const [deleteRequest] = useMutation(DELETE_REQUEST);
   const { loading, data } = useQuery(QUERY_REQUESTS);
   const units = data?.requests || [];
@@ -37,11 +32,11 @@ const RequestList = () => {
   return (
     <div>
       <h2 className={styles.title}>Requests</h2>
-      <div>
+      <div className='d-flex flex-wrap justify-content-around'>
         {units.map((unit) => (
           <div key={unit._id}>
             {unit.requests[0] && (
-              <div key={unit._id}>
+              <div key={unit._id} className='mx-3 my-3'>
                 <h4 className={styles.title}>
                   Requests from Unit {unit.unitNumber}
                 </h4>
@@ -71,31 +66,6 @@ const RequestList = () => {
                           </Accordion.Body>
                         </Accordion.Item>
                       </Accordion>
-                      {/* <Modal
-                        show={show}
-                        onHide={handleClose}
-                        scrollable={true}
-                        backdrop="static"
-                        keyboard={false}
-                        dialogClassName="modal-90w"
-                      >
-                        <Modal.Header>
-                          <Modal.Title>
-                            Request from Unit {unit.unitNumber}
-                          </Modal.Title>
-                        </Modal.Header>
-
-                        <Modal.Body>
-                          <p>{request.requestBody}</p>
-                        </Modal.Body>
-
-                        <Modal.Footer>
- 
-                          <Button variant="secondary" onClick={handleClose}>
-                            Close
-                          </Button>
-                        </Modal.Footer>
-                      </Modal> */}
                     </div>
                   ))}
                 </div>
