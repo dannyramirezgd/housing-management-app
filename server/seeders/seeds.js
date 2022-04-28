@@ -15,9 +15,11 @@ db.once('open', async () => {
     const username = faker.internet.userName();
     const email = faker.internet.email();
     const password = await bcrypt.hash('Password', 10);
+    const firstName = faker.name.firstName();
+    const lastName = faker.name.lastName();
     const isAdmin = true;
 
-    adminData.push({ username, email, password, isAdmin });
+    adminData.push({ username, email, password, firstName, lastName, isAdmin });
   }
 
   await Admin.collection.insertMany(adminData);
@@ -31,8 +33,10 @@ db.once('open', async () => {
     const unitNumber = i + 1;
     const email = faker.internet.email();
     const password = await bcrypt.hash('password', 10);
+    const firstName = faker.name.firstName();
+    const lastName = faker.name.lastName();
 
-    const createdUnit = await Unit.create({ unitNumber, email, password });
+    const createdUnit = await Unit.create({ unitNumber, email, password, firstName, lastName });
 
     const updatedAdmin = await Admin.updateMany(
       { isAdmin: true },

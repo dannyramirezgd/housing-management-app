@@ -12,6 +12,7 @@ import UnitInfo from './pages/UnitInfo';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
+import AdminHome from './pages/AdminHome'
 
 
 const httpLink = createHttpLink({
@@ -46,7 +47,8 @@ function App() {
               <Route exact path='/signup' component={Signup} />
               <Route exact path='/profile/:username?' component={Profile} />
               <Route exact path='/unit/:id' component={UnitInfo} />
-
+              <Route exact path='/admin' component={AdminHome} />
+              
               <Route component={NoMatch} />
             </Switch>
           </div>
