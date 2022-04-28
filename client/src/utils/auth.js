@@ -35,10 +35,12 @@ class AuthService {
     // set token to localStorage and reload page to homepage
     login(idToken) {
         //saves user token to localStorage
+
         localStorage.setItem('id_token', idToken);
 
-        window.location.assign('/');
+        window.location.assign('/adminHome');
     }
+
 
     //clear token from localStorage and force logout with reload
     logout() {
