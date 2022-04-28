@@ -19,11 +19,21 @@ export const MARK_COMPLETE = gql`
     markComplete(unitId: $unitId, requestId: $requestId) {
       _id
       unitNumber
-      requests{
+      requests {
         _id
         isComplete
         requestBody
       }
     }
   }
-`
+`;
+
+export const ADD_UNIT = gql`
+  mutation addUnit($email: String!, $password: String!, $unitNumber: Int!) {
+    addUnit(email: $email, password: $password, unitNumber: $unitNumber) {
+      unitNumber: Int
+      email: String
+      password: String
+    }
+  }
+`;
