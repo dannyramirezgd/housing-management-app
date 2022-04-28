@@ -3,8 +3,9 @@ import { useMutation, useQuery } from '@apollo/client';
 import { DELETE_REQUEST } from '../../utils/mutations';
 import { QUERY_REQUESTS } from '../../utils/queries';
 import styles from './RequestList.module.css';
-import Modal from 'react-bootstrap/Modal';
+import Accordion from 'react-bootstrap/Accordion';
 import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const RequestList = () => {
   const [show, setShow] = useState(false);
@@ -41,16 +42,36 @@ const RequestList = () => {
           <div key={unit._id}>
             {unit.requests[0] && (
               <div key={unit._id}>
-                <button className={styles.title} onClick={handleShow}>
+                <h4 className={styles.title}>
                   Requests from Unit {unit.unitNumber}
-                </button>
+                </h4>
                 <h5 className={styles.secondaryTitle}>
                   Request Count {unit.requests.length}
                 </h5>
                 <div>
                   {unit.requests.map((request) => (
                     <div key={request._id}>
-                      <Modal
+                      <Accordion>
+                        <Accordion.Item eventKey="0">
+                          <Accordion.Header>Request</Accordion.Header>
+                          <Accordion.Body>
+                            {request.requestBody}<br></br>
+                            <Button
+                              variant="secondary"
+                              onClick={() =>
+                                handleCompleteButton(
+                                  request._id,
+                                  unit._id,
+                                  request.requestCount,
+                                )
+                              }
+                            >
+                              Mark as Completed
+                            </Button>
+                          </Accordion.Body>
+                        </Accordion.Item>
+                      </Accordion>
+                      {/* <Modal
                         show={show}
                         onHide={handleClose}
                         scrollable={true}
@@ -69,23 +90,12 @@ const RequestList = () => {
                         </Modal.Body>
 
                         <Modal.Footer>
-                          <Button
-                            variant="secondary"
-                            onClick={() =>
-                              handleCompleteButton(
-                                request._id,
-                                unit._id,
-                                request.requestCount,
-                              )
-                            }
-                          >
-                            Mark as Completed
-                          </Button>
+ 
                           <Button variant="secondary" onClick={handleClose}>
                             Close
                           </Button>
                         </Modal.Footer>
-                      </Modal>
+                      </Modal> */}
                     </div>
                   ))}
                 </div>
@@ -98,18 +108,4 @@ const RequestList = () => {
   );
 };
 
-<Modal.Dialog>
-  <Modal.Header closeButton>
-    <Modal.Title>Modal title</Modal.Title>
-  </Modal.Header>
-
-  <Modal.Body>
-    <p>Modal body text goes here.</p>
-  </Modal.Body>
-
-  <Modal.Footer>
-    <Button variant="secondary">Close</Button>
-    <Button variant="primary">Save changes</Button>
-  </Modal.Footer>
-</Modal.Dialog>;
 export default RequestList;
