@@ -57,6 +57,7 @@ const typeDefs = gql`
     addAdmin(username: String!, email: String!, password: String!): AdminAuth
     createRequest(requestBody: String!): Unit
     markComplete(unitId: ID!, requestId: ID!): Unit
+    deleteRequest(unitId: ID!, requestId: ID!): Unit
   }
 `;
 

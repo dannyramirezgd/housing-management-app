@@ -21,6 +21,16 @@ const unitSchema = new Schema(
       required: true,
       minlength: 6,
     },
+    firstName: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    lastName: {
+      type: String,
+      required: true,
+      trim: true
+    },
     requests: [requestSchema],
   },
   {

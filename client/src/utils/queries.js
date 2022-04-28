@@ -47,6 +47,7 @@ export const QUERY_REQUESTS = gql`
     requests {
         _id
         unitNumber
+        requestCount
       requests {
         _id
         requestBody

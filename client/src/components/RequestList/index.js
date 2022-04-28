@@ -1,18 +1,16 @@
 import React from 'react';
-import { useMutation } from '@apollo/client';
-import { MARK_COMPLETE } from '../../utils/mutations';
+import { useMutation, useQuery } from '@apollo/client';
+import { DELETE_REQUEST } from '../../utils/mutations';
+import { QUERY_REQUESTS } from '../../utils/queries';
 
-const RequestList = ({ units }) => {
-  const [markComplete, { error }] = useMutation(MARK_COMPLETE);
-
-  if (!units.length) {
-    return <h3>No Requests yet</h3>;
-  }
-
+const RequestList = () => {
+  const [deleteRequest, { error }] = useMutation(DELETE_REQUEST);
+  const { loading, data } = useQuery(QUERY_REQUESTS);
+  const units = data?.requests || [];
   const handleCompleteButton = async (requestId, unitId) => {
-    
+
     try {
-      await markComplete({
+      await deleteRequest({
         variables: { unitId, requestId },
       });
     } catch (e) {
@@ -20,25 +18,46 @@ const RequestList = ({ units }) => {
     }
   };
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!units.length) {
+    return <h3>No Requests yet</h3>;
+  }
+
   return (
     <div>
-      <h3>Requests</h3>
+      <h2>Requests</h2>
       <div>
         {units.map((unit) => (
           <div key={unit._id}>
             {unit.requests[0] && (
               <div key={unit._id} id={unit._id}>
-                Requests from {unit.unitNumber}
+                <h4>Requests from Unit {unit.unitNumber}</h4>
+                <h5>Request Count {unit.requests.length}</h5>
                 <div>
                   {unit.requests.map((request) => (
                     <div key={request._id} id={request._id}>
-                      <p>Request made on {request.createdAt}</p>
-                      <p>{request.requestBody}</p>
-                      {!request.isComplete && <p>Hello</p>}
-                      <button className="btn" onClick={() => handleCompleteButton(request._id, unit._id)}>
-                        Mark as Completed
-                      </button>
-                      {error && <div>Something went wrong</div>}
+                      {!request.isComplete && (
+                        <div key={request._id} id={request._id}>
+                          <p>Request made on {request.createdAt}</p>
+                          <p>{request.requestBody}</p>
+                          <button
+                            className="btn"
+                            onClick={() =>
+                              handleCompleteButton(
+                                request._id,
+                                unit._id,
+                                request.requestCount,
+                              )
+                            }
+                          >
+                            Mark as Completed
+                          </button>
+                          {error && <div>Something went wrong</div>}
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>
