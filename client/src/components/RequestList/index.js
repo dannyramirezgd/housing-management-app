@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { DELETE_REQUEST } from '../../utils/mutations';
 import { QUERY_REQUESTS } from '../../utils/queries';
+import styles from './RequestList.module.css';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
 const RequestList = () => {
-  const [deleteRequest, { error }] = useMutation(DELETE_REQUEST);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const [deleteRequest] = useMutation(DELETE_REQUEST);
   const { loading, data } = useQuery(QUERY_REQUESTS);
   const units = data?.requests || [];
   const handleCompleteButton = async (requestId, unitId) => {
@@ -27,23 +35,42 @@ const RequestList = () => {
 
   return (
     <div>
-      <h2>Requests</h2>
+      <h2 className={styles.title}>Requests</h2>
       <div>
         {units.map((unit) => (
           <div key={unit._id}>
             {unit.requests[0] && (
-              <div key={unit._id} id={unit._id}>
-                <h4>Requests from Unit {unit.unitNumber}</h4>
-                <h5>Request Count {unit.requests.length}</h5>
+              <div key={unit._id}>
+                <button className={styles.title} onClick={handleShow}>
+                  Requests from Unit {unit.unitNumber}
+                </button>
+                <h5 className={styles.secondaryTitle}>
+                  Request Count {unit.requests.length}
+                </h5>
                 <div>
                   {unit.requests.map((request) => (
-                    <div key={request._id} id={request._id}>
-                      {!request.isComplete && (
-                        <div key={request._id} id={request._id}>
-                          <p>Request made on {request.createdAt}</p>
+                    <div key={request._id}>
+                      <Modal
+                        show={show}
+                        onHide={handleClose}
+                        scrollable={true}
+                        backdrop="static"
+                        keyboard={false}
+                        dialogClassName="modal-90w"
+                      >
+                        <Modal.Header>
+                          <Modal.Title>
+                            Request from Unit {unit.unitNumber}
+                          </Modal.Title>
+                        </Modal.Header>
+
+                        <Modal.Body>
                           <p>{request.requestBody}</p>
-                          <button
-                            className="btn"
+                        </Modal.Body>
+
+                        <Modal.Footer>
+                          <Button
+                            variant="secondary"
                             onClick={() =>
                               handleCompleteButton(
                                 request._id,
@@ -53,10 +80,12 @@ const RequestList = () => {
                             }
                           >
                             Mark as Completed
-                          </button>
-                          {error && <div>Something went wrong</div>}
-                        </div>
-                      )}
+                          </Button>
+                          <Button variant="secondary" onClick={handleClose}>
+                            Close
+                          </Button>
+                        </Modal.Footer>
+                      </Modal>
                     </div>
                   ))}
                 </div>
@@ -69,4 +98,18 @@ const RequestList = () => {
   );
 };
 
+<Modal.Dialog>
+  <Modal.Header closeButton>
+    <Modal.Title>Modal title</Modal.Title>
+  </Modal.Header>
+
+  <Modal.Body>
+    <p>Modal body text goes here.</p>
+  </Modal.Body>
+
+  <Modal.Footer>
+    <Button variant="secondary">Close</Button>
+    <Button variant="primary">Save changes</Button>
+  </Modal.Footer>
+</Modal.Dialog>;
 export default RequestList;
