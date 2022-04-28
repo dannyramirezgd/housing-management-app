@@ -24,12 +24,6 @@
   "homepage": "https://github.com/dannyramirezgd/deep-thoughts#readme",
   "devDependencies": {
     "concurrently": "^7.1.0"
-  },
-  "dependencies": {
-    "bcrypt": "^5.0.1",
-    "materialize-css": "^1.0.0",
-    "mongoose": "^6.3.1",
-    "react-materialize": "^3.10.0",
-    "react-spring": "^9.4.4"
   }
+  
 }

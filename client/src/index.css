@@ -1,8 +1,16 @@
+/* Color Schema
+#070A0E = black
+#F5F5F5 = off-white
+#8BB9D3 = Infantry blue
+#4682B4 = metal blue
+#E11818 = Passion red
+*/
+
 :root {
   --primary: #8BB9D3;
   --secondary: #4682B4;
   --tertiary: #070A0E;
-  --quatrinary: #F5F5F5;
+  --off-white: #F5F5F5;
   --light: #e1f5f4;
   --dark: #dbe3e3;
   --error: rgb(228, 46, 1);
@@ -17,6 +25,11 @@
 * {
   box-sizing: border-box;
 }
+
+/* Googlefont import */
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Patrick+Hand&family=Shadows+Into+Light&display=swap');
+/* font-family: 'Abel', 'Patrick hand', and 'Shadows Into Light' */
+
 
 html,
 body {

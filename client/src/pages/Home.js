@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
-import SignUpForm from '../components/Signup'
+import SignUpForm from '../components/Signup';
 
 const Home = () => {
   const [showSignModal, setShowSignModal] = useState(false);

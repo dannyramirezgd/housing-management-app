@@ -1,6 +1,7 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
+import logo from '../../image/NHLlogo.png';
+import styles from './Header.module.css';
 
 const Header = () => {
   
@@ -8,33 +9,33 @@ const Header = () => {
     event.preventDefault();
     Auth.logout();
   };
-
-  return (
-    <header className="bg-secondary py-2 flex-row align-center">
+  
+  return(
+    <header className="bg-secondary flex-row align-center">
       <div className="container flex-row justify-space-between-lg px-3 justify-center align-center">
-        <Link to='/'>      
-          <h1>New House Life</h1>
+          <div className={styles.font}>   
+          New House Life
+          </div>
+        <Link to='/'>
+          <img className={styles.logo} src={logo} alt=''/>   
         </Link>
 
         <nav className='text-center'>
           {Auth.loggedIn() ? (
             <>
-            <Link to='/profile'>Me</Link>
-            <a href='/' onClick={logout}>
+            <Link className={styles.font} to='/' onClick={logout}>
               logout
-            </a>
+            </Link>
             </>
           ):(
             <>
-              <Link to='/login'>Login</Link>
-              <Link to='/signup'>Signup</Link>
+              <Link className={styles.font} to='/login'>Login</Link>
             </>
           )}
 
         </nav>  
       </div>
     </header>
-  );
-};
+)};
 
 export default Header;
