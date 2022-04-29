@@ -1,9 +1,3 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 .timer_container {
   background-image: url('../../image/NewHouseLifeStockPhoto_1.jpg');
   background-position: center;
@@ -46,9 +40,9 @@
 .btn {
   background-color: var(--secondary);
   color: rgb(238, 238, 238);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   text-align: center;
-  padding: 0.6em;
+  padding: 0.5em;
   margin: 1em;
   box-shadow: 5px 5px 5px black;
   cursor: pointer;
