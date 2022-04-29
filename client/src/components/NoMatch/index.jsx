@@ -28,13 +28,14 @@ const NoMatch = ({ history }) => {
     <section className={styles.timer_container}>
       <section className={styles.timer}>
         <div>
-          <img src={cryingTenants} alt="crying tenants" />
+          <img
+            src={cryingTenants}
+            alt="crying tenants"
+            style={{ width: '350px' }}
+          />
 
           <h1>404</h1>
-          <button
-            className={styles.btn}
-            onClick={() => history.push('/')}
-          >
+          <button className={styles.btn} onClick={() => history.push('/')}>
             BACK HOME
           </button>
           <h2>Oh~ SNAP!! You got evicted.</h2>

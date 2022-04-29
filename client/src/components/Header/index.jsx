@@ -11,7 +11,7 @@ const Header = () => {
   };
   
   return(
-    <header className="bg-secondary flex-row align-center">
+    <header className="flex-row align-center" style={{backgroundColor: '#4682B4'}}>
       <div className="container flex-row justify-space-between-lg px-3 justify-center align-center">
           <div className={styles.font}>   
           New House Life
