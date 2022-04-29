@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <main>
       <Hero />
-      <button onClick={() => setShowSignModal(true)}>Create an account</button>
+      <button onClick={() => setShowSignModal(true)}>New Resident Application</button>
       <Modal
         size="lg"
         show={showSignModal}
