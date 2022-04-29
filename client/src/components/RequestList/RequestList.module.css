@@ -1,0 +1,16 @@
+.title {
+    color: #4682B4
+}
+.secondaryTitle {
+    color: #8BB9D3
+}
+.requestBody{
+    color: #070A0E
+}
+
+.modal {
+    max-height: calc(100vh-210px);
+    overflow-y: auto;
+    max-width: calc(100vh-200px);
+    overflow-x: auto;
+}
