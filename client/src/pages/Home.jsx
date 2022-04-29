@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import SignUpForm from '../components/Signup';
+import Loading from '../components/Loading';
 
 const Home = () => {
   const [showSignModal, setShowSignModal] = useState(false);
@@ -14,6 +15,7 @@ const Home = () => {
       >
         <SignUpForm handleModalClose={() => setShowSignModal(false)} />
       </Modal>
+      <Loading />
     </main>
   );
 };
