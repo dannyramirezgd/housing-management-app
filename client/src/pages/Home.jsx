@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
-import SignUpForm from '../components/Signup';
+import EmailForm from '../components/EmailForm';
 import Hero from '../components/Hero';
 
 const Home = () => {
@@ -14,7 +14,7 @@ const Home = () => {
         show={showSignModal}
         onHide={() => setShowSignModal(false)}
       >
-        <SignUpForm handleModalClose={() => setShowSignModal(false)} />
+        <EmailForm handleModalClose={() => setShowSignModal(false)} />
       </Modal>
     </main>
   );

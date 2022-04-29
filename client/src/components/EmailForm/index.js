@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import emailjs from 'emailjs-com';
 
-export const EmailForm = () => {
+const EmailForm = () => {
   const form = useRef();
   console.log(form)
   const sendEmail = (e) => {
@@ -35,3 +35,5 @@ export const EmailForm = () => {
     </form>
   );
 };
+
+export default EmailForm;
