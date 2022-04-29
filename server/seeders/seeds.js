@@ -27,7 +27,7 @@ db.once('open', async () => {
   console.log('Admin Data Seeded!');
 
   //   create Unit data..limiting to 10 for now.
-  let unitData = [];
+  const unitData = [];
 
   for (let i = 0; i < 10; i++) {
     const unitNumber = i + 1;
@@ -36,15 +36,17 @@ db.once('open', async () => {
     const firstName = faker.name.firstName();
     const lastName = faker.name.lastName();
 
-    const createdUnit = await Unit.create({ unitNumber, email, password, firstName, lastName });
+    // const createdUnit = unitData.push({ unitNumber, email, password, firstName, lastName });
 
-    const updatedAdmin = await Admin.updateMany(
-      { isAdmin: true },
-      { $push: { units: createdUnit._id } },
-    );
+    // const updatedAdmin = await Admin.updateMany(
+    //   { isAdmin: true },
+    //   { $push: { units: createdUnit._id } },
+    // );
 
-    unitData.push(createdUnit);
+    unitData.push({ unitNumber, email, password, firstName, lastName });
   }
+
+  await Unit.collection.insertMany(unitData)
 
   console.log('Unit Data Seeded!');
 
