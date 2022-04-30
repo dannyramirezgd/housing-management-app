@@ -6,6 +6,7 @@ import styles from './RequestList.module.css';
 import Accordion from 'react-bootstrap/Accordion';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Loading from '../Loading'
 
 const RequestList = () => {
   const [deleteRequest] = useMutation(DELETE_REQUEST);
@@ -22,7 +23,7 @@ const RequestList = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (!units.length) {

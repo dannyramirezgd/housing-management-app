@@ -3,7 +3,7 @@ import imageOne from '../../image/NewHouseLifeStockPhoto_3.jpg';
 import { useState } from 'react';
 import { Figure, Modal } from 'react-bootstrap';
 import styles from './Hero.module.css';
-import SignUpForm from '../Signup';
+import EmailForm from '../EmailForm';
 
 const Hero = () => {
   const [showSignModal, setShowSignModal] = useState(false);
@@ -42,7 +42,7 @@ const Hero = () => {
           show={showSignModal}
           onHide={() => setShowSignModal(false)}
         >
-          <SignUpForm handleModalClose={() => setShowSignModal(false)} />
+          <EmailForm onSubmit={() => setShowSignModal(true)} />
         </Modal>
       </div>
     </div>
