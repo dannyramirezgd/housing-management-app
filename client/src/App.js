@@ -18,7 +18,6 @@ import Documents from './pages/Documents';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
-import Signup from './pages/Signup';
 import UnitInfo from './pages/UnitInfo';
 
 const httpLink = createHttpLink({
@@ -50,7 +49,6 @@ function App() {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
-              <Route exact path="/signup" component={Signup} />
               <Route exact path="/adminHome" component={AdminHome} />
               <Route exact path="/profile/:id" component={Profile} />
               <Route exact path="/unit/:id" component={UnitInfo} />

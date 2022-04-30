@@ -6,7 +6,7 @@ const unitSchema = new Schema(
   {
     unitNumber: {
       type: Number,
-      require: true,
+      required: true,
       unique: true,
       trim: true,
     },

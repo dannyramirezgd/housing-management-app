@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
 import emailjs from 'emailjs-com';
 
-const EmailForm = () => {
+const EmailForm = ({ setShowSignModal }) => {
   const form = useRef();
-  console.log(form)
+
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -20,8 +20,12 @@ const EmailForm = () => {
         },
         (error) => {
           console.log(error.text);
-        },
+        },      
+        //is there a better way to do this? 
+        //can we pass state up to parent component?
+        window.location.reload()
       );
+
   };
   return (
     <form ref={form} onSubmit={sendEmail}>
