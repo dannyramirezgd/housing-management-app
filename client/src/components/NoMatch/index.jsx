@@ -20,13 +20,13 @@ const NoMatch = ({ history }) => {
   useEffect(() => {
     if (timerSeconds === 0) {
       clear();
-      window.location.replace('/');
+      // window.location.replace('/');
     }
   }, [timerSeconds]);
 
   return (
-    <section className={styles.timer_container}>
-      <section className={styles.timer}>
+    <div className={styles.timer_container}>
+      <div className={styles.timer}>
         <div>
           <img
             src={cryingTenants}
@@ -66,8 +66,8 @@ const NoMatch = ({ history }) => {
             </p>
           </section>
         </div>
-      </section>
-    </section>
+      </div>
+    </div>
   );
 };
 
