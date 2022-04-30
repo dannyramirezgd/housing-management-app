@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import emailjs from 'emailjs-com';
 import { validateEmail, validateInput } from '../utils/helpers';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -20,10 +21,21 @@ const ContactUs = ({ history }) => {
   const [errorMsg, setErrorMsg] = useState('');
   const { name, email, message } = formState;
 
-  const handleSubmit = (e) => {
+  const form = useRef(null);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!errorEmail && !errorName && !errorMsg) {
-      console.log('Submit Form', formState);
+    try {
+      if (!errorEmail && !errorName && !errorMsg) {
+        console.log('Submit Form', formState);
+        // await emailjs.sendForm();
+
+        // how can I clear name post submit?? ahghhh!!!
+        setFormState({ name: '', email: '', message: '' });
+      }
+    } catch (e) {
+      console.log(e);
+      throw e;
     }
   };
 
