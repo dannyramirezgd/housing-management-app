@@ -8,7 +8,7 @@ import {
 } from '@fortawesome/free-regular-svg-icons';
 import bgImg from '../image/NewHouseLifeStockPhoto_6.jpg';
 import contactPic from '../image/contatus.jpg';
-import { Figure } from 'react-bootstrap';
+import { Figure, Alert, Modal } from 'react-bootstrap';
 
 const ContactUs = ({ history }) => {
   const [formState, setFormState] = useState({
@@ -21,7 +21,9 @@ const ContactUs = ({ history }) => {
   const [errorMsg, setErrorMsg] = useState('');
   const { name, email, message } = formState;
 
-  const form = useRef(null);
+  const [show, setShow] = useState(false);
+
+  const form = useRef();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,9 +31,18 @@ const ContactUs = ({ history }) => {
       if (!errorEmail && !errorName && !errorMsg) {
         console.log('Submit Form', formState);
         // await emailjs.sendForm();
+        const emailSent = await emailjs.sendForm(
+          'service_n14tqlb',
+          'template_xr1nyq9',
+          form.current,
+          '0gvWyx6zur9zJ2n3b',
+        );
 
-        // how can I clear name post submit?? ahghhh!!!
-        setFormState({ name: '', email: '', message: '' });
+        if (emailSent) {
+          setShow(true);
+        } else {
+          console.log(emailSent);
+        }
       }
     } catch (e) {
       console.log(e);
@@ -122,7 +133,12 @@ const ContactUs = ({ history }) => {
           >
             Contact Us
           </h1>
-          <form id="contact-form" className="col-6" onSubmit={handleSubmit}>
+          <form
+            ref={form}
+            id="contact-form"
+            className="col-6"
+            onSubmit={handleSubmit}
+          >
             <div className="form-group">
               <label className="label" htmlFor="name">
                 Name
@@ -146,107 +162,136 @@ const ContactUs = ({ history }) => {
                   onBlur={handleNameChange}
                 />
               </div>
-              {errorName && (
-                <p
-                  style={{
-                    color: 'red',
-                    fontFamily: 'Patrick Hand',
-                    fontSize: '0.7em',
-                  }}
+            </div>
+            {errorName && (
+              <p
+                style={{
+                  color: 'red',
+                  fontFamily: 'Patrick Hand',
+                  fontSize: '0.7em',
+                }}
+              >
+                Name is required
+              </p>
+            )}
+
+            <div className="form-group">
+              <label className="label" htmlFor="email">
+                Email
+              </label>
+              <div className="input-group mb-3">
+                <div className="input-group-prepend">
+                  <span className="input-group-text" id="basic-addon2">
+                    <FontAwesomeIcon icon={mail} size="2x" />
+                  </span>
+                </div>
+                <input
+                  className={
+                    errorEmail
+                      ? 'form-control border border-danger'
+                      : 'form-control'
+                  }
+                  type="email"
+                  name="email"
+                  defaultValue={email}
+                  placeholder="email"
+                  onBlur={handleEmailChange}
+                />
+              </div>
+            </div>
+            {errorEmail && (
+              <p
+                style={{
+                  color: 'red',
+                  fontFamily: 'Patrick Hand',
+                  fontSize: '0.7em',
+                }}
+              >
+                This email is invalid
+              </p>
+            )}
+
+            <div className="form-group">
+              <label className="label" htmlFor="email">
+                Message
+              </label>
+              <div className="input-group mb-3">
+                <textarea
+                  style={{ resize: 'none', height: '250px' }}
+                  className={
+                    errorEmail
+                      ? 'form-control border border-danger'
+                      : 'form-control'
+                  }
+                  type="text"
+                  name="message"
+                  defaultValue={message}
+                  placeholder="How can we help you?"
+                  onBlur={handleMsgChange}
+                />
+              </div>
+            </div>
+            {errorMsg && (
+              <p
+                style={{
+                  color: 'red',
+                  fontFamily: 'Patrick Hand',
+                  fontSize: '0.7em',
+                }}
+              >
+                Message is required
+              </p>
+            )}
+
+            <div className="d-flex flex-direction-row">
+              <div className="p-2">
+                <button
+                  className="btn"
+                  type="submit"
+                  style={{ fontFamily: 'Abel' }}
                 >
-                  Name is required
-                </p>
-              )}
-              <div className="form-group">
-                <label className="label" htmlFor="email">
-                  Email
-                </label>
-                <div className="input-group mb-3">
-                  <div className="input-group-prepend">
-                    <span className="input-group-text" id="basic-addon2">
-                      <FontAwesomeIcon icon={mail} size="2x" />
-                    </span>
-                  </div>
-                  <input
-                    className={
-                      errorEmail
-                        ? 'form-control border border-danger'
-                        : 'form-control'
-                    }
-                    type="email"
-                    name="email"
-                    defaultValue={email}
-                    placeholder="email"
-                    onBlur={handleEmailChange}
-                  />
-                </div>
-                {errorEmail && (
-                  <p
-                    style={{
-                      color: 'red',
-                      fontFamily: 'Patrick Hand',
-                      fontSize: '0.7em',
-                    }}
-                  >
-                    This email is invalid
-                  </p>
-                )}
+                  Submit
+                </button>
               </div>
-
-              <div className="form-group">
-                <label className="label" htmlFor="email">
-                  Message
-                </label>
-                <div className="input-group mb-3">
-                  <textarea
-                    style={{ resize: 'none', height: '250px' }}
-                    className={
-                      errorEmail
-                        ? 'form-control border border-danger'
-                        : 'form-control'
-                    }
-                    type="text"
-                    name="message"
-                    defaultValue={message}
-                    placeholder="How can we help you?"
-                    onBlur={handleMsgChange}
-                  />
-                </div>
-                {errorMsg && (
-                  <p
-                    style={{
-                      color: 'red',
-                      fontFamily: 'Patrick Hand',
-                      fontSize: '0.7em',
-                    }}
-                  >
-                    Message is required
-                  </p>
-                )}
-              </div>
-
-              <div className="d-flex flex-direction-row">
-                <div className="p-2">
-                  <button
-                    className="btn"
-                    type="submit"
-                    style={{ fontFamily: 'Abel' }}
-                  >
-                    Submit
-                  </button>
-                </div>
-                <div className="p-2">
-                  <button
-                    className="btn"
-                    style={{ fontFamily: 'Abel' }}
-                    onClick={() => history.push('/')}
-                  >
-                    Cancel
-                  </button>
-                </div>
+              <div className="p-2">
+                <button
+                  className="btn"
+                  style={{ fontFamily: 'Abel' }}
+                  onClick={() => history.push('/')}
+                >
+                  Cancel
+                </button>
               </div>
             </div>
           </form>
+          <Modal show={show}>
+            <Alert
+              key="success"
+              variant="success"
+              style={{
+                fontWeight: 'bold',
+                fontFamily: 'Abel',
+                width: '100%',
+                display: 'block',
+                margin: '0',
+                textAlign: 'center',
+              }}
+            >
+              <Alert.Heading>
+                Thank you for your interest. <br />
+                Allow us 365 business days to fulfill your request.
+              </Alert.Heading>
+              <hr />
+              <button className="btn"
+                onClick={() => {
+                  setShow(false);
+                  window.location.reload();
+                }}
+              >
+                Close
+              </button>
+            </Alert>
+          </Modal>
         </div>
       </div>
     </div>
