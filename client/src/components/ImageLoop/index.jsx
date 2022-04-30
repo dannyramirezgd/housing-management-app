@@ -13,7 +13,7 @@ function ImageLoop() {
 
   return (
     <div>
-      <Marquee className={styles.marqCont} speed="100">
+      <Marquee className={styles.marqCont} speed="50">
         {images.map((item) => (
           <img className={styles.marqueeImg} src={item} alt="marquee-img" />
         ))}

@@ -20,7 +20,7 @@ const NoMatch = ({ history }) => {
   useEffect(() => {
     if (timerSeconds === 0) {
       clear();
-      // window.location.replace('/');
+      window.location.assign('/');
     }
   }, [timerSeconds]);
 
