@@ -38,7 +38,7 @@ const Footer = () => {
           <FontAwesomeIcon icon={documents} className={styles.infoIcon} size='2x'/>
           DOCUMENTS
         </Link>
-        <Link to="/contact" className={styles.info}>
+        <Link to="/contactUs" className={styles.info}>
           <FontAwesomeIcon icon={contact} className={styles.infoIcon} size='2x'/>
           CONTACT US
         </Link>
