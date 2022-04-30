@@ -1,13 +1,13 @@
 import React from 'react';
+import UserReq from '../components/UserReq'
 
-const Profile = () => {
-
+const AdminHome = () => {
 
   return (
-    <div>
-      This is your profile
-    </div>
+    <main>
+      <UserReq />
+    </main>
   );
 };
 
-export default Profile;
+export default AdminHome;
