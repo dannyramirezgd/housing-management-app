@@ -2,9 +2,13 @@ import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 import logo from '../../image/NHLlogo.png';
 import styles from './Header.module.css';
-
+import { useSpring, animated } from 'react-spring'
 const Header = () => {
-  
+  const logoStyle = useSpring({
+    from: { scale: 1.25 },
+    to: { scale: 1 },
+    config: { duration: 1000 }
+  })
   const logout = event => {
     event.preventDefault();
     Auth.logout();
@@ -17,7 +21,7 @@ const Header = () => {
           New House Life
           </div>
         <Link to='/'>
-          <img className={styles.logo} src={logo} alt=''/>   
+          <animated.img style={logoStyle} className={styles.logo} src={logo} alt=''/>   
         </Link>
 
         <nav className='text-center'>
