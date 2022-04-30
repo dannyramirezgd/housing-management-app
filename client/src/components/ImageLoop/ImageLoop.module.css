@@ -1,8 +1,11 @@
+
 .marqCont {
+    display: block;
+    width: 99vw;
     padding: 50px auto;
     background-color: var(--primary);
     border-top: 5px solid var(--tertiary);
-    border-bottom: 5px solid var(--tertiary)
+    border-bottom: 5px solid var(--tertiary);
 }
 .marqueeImg {
     margin: 20px;

@@ -29,11 +29,31 @@ export const DELETE_REQUEST = gql`
 `;
 
 export const ADD_UNIT = gql`
-  mutation addUnit($email: String!, $password: String!, $unitNumber: Int!, $firstName: String!, $lastName: String!) {
-    addUnit(email: $email, password: $password, unitNumber: $unitNumber, firstName: $firstName, lastName: $lastName) {
+  mutation addUnit(
+    $email: String!
+    $password: String!
+    $unitNumber: Int!
+    $firstName: String!
+    $lastName: String!
+  ) {
+    addUnit(
+      email: $email
+      password: $password
+      unitNumber: $unitNumber
+      firstName: $firstName
+      lastName: $lastName
+    ) {
       unitNumber: Int
       email: String
       password: String
+    }
+  }
+`;
+
+export const POST_REQUEST = gql`
+  mutation CreateRequest($requestBody: String!) {
+    createRequest(requestBody: $requestBody) {
+      _id
     }
   }
 `;
