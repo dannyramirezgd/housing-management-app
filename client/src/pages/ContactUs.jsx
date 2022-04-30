@@ -6,8 +6,10 @@ import {
   faEnvelope as mail,
 } from '@fortawesome/free-regular-svg-icons';
 import bgImg from '../image/NewHouseLifeStockPhoto_6.jpg';
+import contactPic from '../image/contatus.jpg';
+import { Figure } from 'react-bootstrap';
 
-const ContactUs = () => {
+const ContactUs = ({ history }) => {
   const [formState, setFormState] = useState({
     name: '',
     email: '',
@@ -70,10 +72,6 @@ const ContactUs = () => {
     }
   };
 
-  const backHome = () => {
-    window.location.reload('/');
-  };
-
   return (
     <div
       style={{
@@ -96,9 +94,18 @@ const ContactUs = () => {
           height: '100vh',
         }}
       >
-        <section className="container d-flex flex-column align-items-center justify-content-center">
+        <div className="container d-flex flex-column align-items-center justify-content-center">
+          <Figure>
+            <Figure.Image
+              className="mt-3"
+              width={275}
+              alt="a person sending an email"
+              src={contactPic}
+              style={{ border: '2px solid #blue' }}
+            />
+          </Figure>
           <h1
-            className="text-center mt-5"
+            className="text-center"
             style={{ fontFamily: 'Abel', fontWeight: 'bold', fontSize: '3rem' }}
           >
             Contact Us
@@ -180,7 +187,7 @@ const ContactUs = () => {
                 </label>
                 <div className="input-group mb-3">
                   <textarea
-                    style={{ resize: 'none', height: '300px' }}
+                    style={{ resize: 'none', height: '250px' }}
                     className={
                       errorEmail
                         ? 'form-control border border-danger'
@@ -206,16 +213,21 @@ const ContactUs = () => {
                 )}
               </div>
 
-              <div className="field is-grouped pt-3">
-                <div className="control">
-                  <button className="button is-link" type="submit">
+              <div className="d-flex flex-direction-row">
+                <div className="p-2">
+                  <button
+                    className="btn"
+                    type="submit"
+                    style={{ fontFamily: 'Abel' }}
+                  >
                     Submit
                   </button>
                 </div>
-                <div className="control">
+                <div className="p-2">
                   <button
-                    className="button is-link is-light"
-                    onClick={backHome}
+                    className="btn"
+                    style={{ fontFamily: 'Abel' }}
+                    onClick={() => history.push('/')}
                   >
                     Cancel
                   </button>
@@ -223,7 +235,7 @@ const ContactUs = () => {
               </div>
             </div>
           </form>
-        </section>
+        </div>
       </div>
     </div>
   );
