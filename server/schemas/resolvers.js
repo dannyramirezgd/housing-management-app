@@ -5,10 +5,11 @@ const { signTokenAdmin, signTokenUnit } = require('../utils/auth');
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
-      if (context.unit) {
+      if (context.admin) {
         const unitData = await Unit.findOne({
-          unitNumber: context.unit.unitNumber,
-        });
+          _id: context.admin._id
+        })
+        .select('-__v -password')
 
         return unitData;
       }
