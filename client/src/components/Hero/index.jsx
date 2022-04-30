@@ -1,9 +1,13 @@
 import hero from '../../image/NewHouseLifeStockPhoto_8.jpg';
 import imageOne from '../../image/NewHouseLifeStockPhoto_3.jpg';
-import { Figure } from 'react-bootstrap';
+import { useState } from 'react';
+import { Figure, Modal } from 'react-bootstrap';
 import styles from './Hero.module.css';
+import SignUpForm from '../Signup';
 
 const Hero = () => {
+  const [showSignModal, setShowSignModal] = useState(false);
+
   return (
     <div>
       <img
@@ -26,9 +30,20 @@ const Hero = () => {
           Begin your new life journey with us!
         </p>
         <hr className="my-4" />
-        <a className="btn btn-primary btn-lg" href="#" role="button">
-          Learn more
-        </a>
+        <button
+          style={{ fontFamily: 'Abel' }}
+          className="btn btn-primary btn-lg"
+          onClick={() => setShowSignModal(true)}
+        >
+          Become a Resident
+        </button>
+        <Modal
+          size="lg"
+          show={showSignModal}
+          onHide={() => setShowSignModal(false)}
+        >
+          <SignUpForm handleModalClose={() => setShowSignModal(false)} />
+        </Modal>
       </div>
     </div>
   );
