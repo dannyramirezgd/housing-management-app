@@ -19,6 +19,7 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
 import UnitInfo from './pages/UnitInfo';
+import ContactUs from './pages/ContactUs';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -40,7 +41,6 @@ const client = new ApolloClient({
 });
 
 function App() {
-
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -56,6 +56,7 @@ function App() {
               <Route exact path="/admin" component={AdminHome} />
               <Route exact path="/amenities" component={Amenities} />
               <Route exact path="/documents" component={Documents} />
+              <Route exact path="/contactUs" component={ContactUs} />
 
               <Route component={NoMatch} />
             </Switch>
