@@ -1,0 +1,13 @@
+.card {
+    color: black;
+    margin: 10px 10px 10px 10px;
+}
+
+.cardHeader{
+    background-color: #4682B4;
+}
+
+.requestForm {
+    margin: 10px 10px 10px 10px;
+    color: black;
+}

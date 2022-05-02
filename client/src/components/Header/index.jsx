@@ -33,6 +33,16 @@ const Header = () => {
       <div>
         {Auth.loggedIn() ? (
           <>
+            {Auth.getProfile().data.isAdmin && (
+              <Link className={styles.font} to="/adminHome">
+                Admin Home
+              </Link>
+            )}
+            {Auth.getProfile().data.isAdmin === false && (
+              <Link className={styles.font} to="/profile/:id">
+                Unit Info
+              </Link>
+            )}
             <Link className={styles.font} to="/" onClick={logout}>
               logout
             </Link>
