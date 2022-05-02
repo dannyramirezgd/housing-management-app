@@ -1,7 +1,14 @@
 import React from 'react';
 import UserReq from '../components/UserReq'
+import Auth from '../utils/auth'
+import {Redirect} from 'react-router-dom'
 
-const AdminHome = () => {
+const Profile = () => {
+
+  if(!Auth.loggedIn()){
+    return <Redirect to ='/'/>
+  }
+
 
   return (
     <main>
@@ -10,4 +17,4 @@ const AdminHome = () => {
   );
 };
 
-export default AdminHome;
+export default Profile;

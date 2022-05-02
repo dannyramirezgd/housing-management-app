@@ -44,15 +44,18 @@ const Login = (props) => {
 
   return (
     <animated.div style={styles}>
-      <main className="flex-row justify-center mb-4">
-        <div className="col-12 col-md-6">
-          <div className="card">
+      <main className="flex-row justify-content-center mb-4 mt-4 min-100-vw">
+        <div className="col-12 col-md-6 w-100">
+          <div className="card m-3">
             <h4 className="card-header">Login</h4>
 
             <div className="card-body">
-              <form onSubmit={handleFormSubmit}>
+              <form
+                className="d-flex justify-content-center flex-wrap"
+                onSubmit={handleFormSubmit}
+              >
                 <input
-                  className="form-input"
+                  className="form-input w-100 mt-3 mb-3"
                   placeholder="Your email"
                   name="email"
                   type="email"
@@ -61,7 +64,7 @@ const Login = (props) => {
                   onChange={handleChange}
                 />
                 <input
-                  className="form-input"
+                  className="form-input w-100 mt-3 mb-3"
                   placeholder="******"
                   name="password"
                   type="password"

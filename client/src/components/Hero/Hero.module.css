@@ -37,3 +37,32 @@
 #4682B4 = metal blue
 #E11818 = Passion red
 */
+@media screen and (max-width: 890px) {
+  .jumbotron{
+      max-height: 250px;
+      position: fixed;
+      top: 100px;
+      left: 0;
+      width: 95%;
+      margin-left: 10px;
+      font-size: 10px;
+  }
+  .figure{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .jumbotron{
+      max-height: 250px;
+      position: fixed;
+      top: 100px;
+      left: 0;
+      width: 95%;
+      margin-left: 10px;
+      font-size: 10px;
+  }
+  .figure{
+    display: none;
+  }
+}
