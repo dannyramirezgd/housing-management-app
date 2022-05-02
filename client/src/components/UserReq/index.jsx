@@ -4,6 +4,7 @@ import { DELETE_REQUEST, POST_REQUEST } from '../../utils/mutations';
 import { QUERY_ME } from '../../utils/queries';
 import { Button, Card, Form } from 'react-bootstrap';
 import Loading from '../Loading';
+import styles from './UserReq.module.css'
 
 const UserReq = () => {
   const { loading, data } = useQuery(QUERY_ME);
@@ -74,8 +75,8 @@ const UserReq = () => {
       <section>
         <h4>Open Issues</h4>
         {unit.requests.map((request, index) => (
-          <Card key={request._id}>
-            <Card.Header>Request {index + 1}</Card.Header>
+          <Card key={request._id} className={styles.card}>
+            <Card.Header className={styles.cardHeader}>Request {index + 1}</Card.Header>
             <Card.Body>
               <Card.Text>{request.requestBody}</Card.Text>
               <Button
@@ -95,7 +96,7 @@ const UserReq = () => {
         ))}
       </section>
       <section>
-        <Form onSubmit={handleFormSubmit}>
+        <Form className={styles.requestForm} onSubmit={handleFormSubmit}>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
             <Form.Label>Submit an Issue</Form.Label>
             <Form.Control
