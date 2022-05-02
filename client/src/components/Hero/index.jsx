@@ -1,7 +1,7 @@
 import hero from '../../image/NewHouseLifeStockPhoto_8.jpg';
 import imageOne from '../../image/NewHouseLifeStockPhoto_3.jpg';
 import { useState } from 'react';
-import { Figure, Modal } from 'react-bootstrap';
+import { Figure, Modal, Button } from 'react-bootstrap';
 import styles from './Hero.module.css';
 import EmailForm from '../EmailForm';
 
@@ -37,13 +37,10 @@ const Hero = () => {
         >
           Become a Resident
         </button>
-        <Modal
-          size="lg"
-          show={showSignModal}
-          onHide={() => setShowSignModal(false)}
-        >
-          <EmailForm onSubmit={() => setShowSignModal(true)} />
-        </Modal>
+        <EmailForm
+          setShowSignModal={setShowSignModal}
+          showSignModal={showSignModal}
+        />
       </div>
     </div>
   );
