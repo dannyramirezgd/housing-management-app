@@ -1,6 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import emailjs from 'emailjs-com';
 import { Form, Modal, Button } from 'react-bootstrap';
+import styles from './EmailForm.module.css';
 
 const EmailForm = ({ setShowSignModal, showSignModal }) => {
   const form = useRef();
@@ -18,9 +19,7 @@ const EmailForm = ({ setShowSignModal, showSignModal }) => {
       .then(
         (result) => {
           console.log(result.text);
-        },
-        //is there a better way to do this?
-        //can we pass state up to parent component?
+        }
       )
       .catch((err) => {
         console.error(err);
@@ -34,17 +33,17 @@ const EmailForm = ({ setShowSignModal, showSignModal }) => {
       onHide={() => setShowSignModal(false)}
       centered
     >
-      <Modal.Header closeButton>
+      <Modal.Header className={styles.modalHeaderStyling} closeButton>
         <Modal.Title>New Resident Info</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body className={styles.modalBodyStyling}>
         <Form ref={form} onSubmit={sendEmail}>
           <Form.Group className="mb-3" controlId="firstname">
             <Form.Label>First Name</Form.Label>
             <Form.Control
               type="email"
               placeholder="Enter your First name"
-              name="user_firstname"
+              name="user_firstName"
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="lastname">
@@ -52,12 +51,12 @@ const EmailForm = ({ setShowSignModal, showSignModal }) => {
             <Form.Control
               type="email"
               placeholder="Enter your last name"
-              name="user_lastname"
+              name="user_lastName"
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="email">
             <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" name="email" />
+            <Form.Control type="email" placeholder="Enter email" name="user_email" />
           </Form.Group>
         </Form>
       </Modal.Body>

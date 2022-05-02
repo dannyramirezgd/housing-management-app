@@ -1,0 +1,7 @@
+.modalHeaderStyling {
+    background-color: var(--tertiary);
+}
+
+.modalBodyStyling {
+    background-color: var(--primary);
+}

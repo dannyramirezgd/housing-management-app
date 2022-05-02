@@ -17,7 +17,7 @@ const Header = () => {
 
   return (
     <header
-      className="d-flex align-center justify-space-between-lg px-3 justify-center"
+      className="d-flex align-items-center justify-space-between-lg px-3 justify-center"
       style={{ backgroundColor: '#4682B4' }}
     >
       <div className={styles.font}>New House Life</div>

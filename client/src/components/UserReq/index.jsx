@@ -7,7 +7,7 @@ import { POST_REQUEST } from '../../utils/mutations';
 import { QUERY_ME } from '../../utils/queries';
 
 const UserReq = () => {
-  const [postRequest, { error }] = useMutation(POST_REQUEST);
+  const [postRequest] = useMutation(POST_REQUEST);
   const [deleteRequest] = useMutation(DELETE_REQUEST);
   const { loading, data } = useQuery(QUERY_ME);
   const [requestData, setRequestData] = useState({
