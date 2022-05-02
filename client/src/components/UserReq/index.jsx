@@ -1,29 +1,34 @@
 import React, { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
-import { DELETE_REQUEST } from '../../utils/mutations';
+import { DELETE_REQUEST, POST_REQUEST } from '../../utils/mutations';
+import { QUERY_ME } from '../../utils/queries';
 import { Button, Card, Form } from 'react-bootstrap';
 import Loading from '../Loading';
-import { POST_REQUEST } from '../../utils/mutations';
-import { QUERY_ME } from '../../utils/queries';
+import styles from './UserReq.module.css';
 
 const UserReq = () => {
+  const { loading, data } = useQuery(QUERY_ME);
   const [postRequest] = useMutation(POST_REQUEST);
   const [deleteRequest] = useMutation(DELETE_REQUEST);
-  const { loading, data } = useQuery(QUERY_ME);
-  const [requestData, setRequestData] = useState({
-    unit: data.unitNumber,
+
+  const unit = data?.me || [];
+
+  const [requestInfo, setRequestInfo] = useState({
     requestBody: '',
   });
-  const unit = data?.requests || [];
+
+  console.log(requestInfo);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setRequestData({
+    setRequestInfo({
       [name]: value,
     });
   };
 
   const handleCompleteButton = async (requestId, unitId) => {
+
+    console.log(requestId, unitId)
     try {
       await deleteRequest({
         variables: { unitId, requestId },
@@ -32,14 +37,6 @@ const UserReq = () => {
       console.error(e);
     }
   };
-
-  if (loading) {
-    return <Loading />;
-  }
-
-  if (!unit.length) {
-    return <h3>No Requests yet</h3>;
-  }
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -51,29 +48,40 @@ const UserReq = () => {
 
     try {
       const { data } = await postRequest({
-        variables: { ...requestData },
+        variables: { ...requestInfo },
       });
-
+      window.location.reload();
       console.log(data);
-      // Auth.login(data.addUser.token);
+      //Auth.login(data.addUser.token);
     } catch (err) {
       console.error(err);
     }
 
-    setRequestData({
+    setRequestInfo({
       unit: data.UnitNumber,
       requestBody: '',
     });
   };
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  if (!unit) {
+    return <h3>No Requests yet</h3>;
+  }
+  console.log(unit)
+
   return (
     <>
-      <h2>Welcome back {data.firstName}</h2>
-      <h3>Open Issues</h3>
+      <h2>Welcome back {unit.firstName}</h2>
       <section>
         <h4>Open Issues</h4>
-        {data.map((request, index) => (
-          <Card key={request._id}>
-            <Card.Header>Request {index + 1}</Card.Header>
+        {unit.requests.map((request, index) => (
+          <Card key={request._id} className={styles.card}>
+            <Card.Header className={styles.cardHeader}>
+              Request {index + 1}
+            </Card.Header>
             <Card.Body>
               <Card.Text>{request.requestBody}</Card.Text>
               <Button
@@ -82,18 +90,17 @@ const UserReq = () => {
                   handleCompleteButton(
                     request._id,
                     unit._id,
-                    request.requestCount,
                   )
                 }
               >
-                Mark as Completed
+                Cancel Request
               </Button>
             </Card.Body>
           </Card>
         ))}
       </section>
       <section>
-        <Form onSubmit={handleFormSubmit}>
+        <Form className={styles.requestForm} onSubmit={handleFormSubmit}>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
             <Form.Label>Submit an Issue</Form.Label>
             <Form.Control
@@ -101,7 +108,7 @@ const UserReq = () => {
               rows={4}
               onChange={handleInputChange}
               name="requestBody"
-              value={requestData.requestBody}
+              value={requestInfo.requestBody}
             />
           </Form.Group>
           <Button variant="primary" type="submit">

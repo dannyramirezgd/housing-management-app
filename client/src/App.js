@@ -18,8 +18,9 @@ import Documents from './pages/Documents';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
-import UnitInfo from './pages/UnitInfo';
+
 import ContactUs from './pages/ContactUs';
+import About from './components/About';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -44,23 +45,21 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        {/* <div className="flex-column justify-flex-start min-100-vh"> */}
-          <Header />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/adminHome" component={AdminHome} />
-              <Route exact path="/profile/:id" component={Profile} />
-              <Route exact path="/unit/:id" component={UnitInfo} />
-              <Route exact path="/admin" component={AdminHome} />
-              <Route exact path="/amenities" component={Amenities} />
-              <Route exact path="/documents" component={Documents} />
-              <Route exact path="/contactUs" component={ContactUs} />
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/adminHome" component={AdminHome} />
+          <Route exact path="/profile/:id" component={Profile} />
 
-              <Route component={NoMatch} />
-            </Switch>
-          <Footer />
-        {/* </div> */}
+          <Route exact path="/admin" component={AdminHome} />
+          <Route exact path="/amenities" component={Amenities} />
+          <Route exact path="/documents" component={Documents} />
+          <Route exact path="/contactUs" component={ContactUs} />
+          <Route exact path="/about" component={About} />
+          <Route component={NoMatch} />
+        </Switch>
+        <Footer />
       </Router>
     </ApolloProvider>
   );

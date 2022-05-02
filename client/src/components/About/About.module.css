@@ -1,0 +1,33 @@
+.Ccontainer {
+  background-image: url('../../image/NewHouseLifeStockPhoto_5.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  width: 100vw;
+  height: 100vh;
+}
+
+.Ccarousel {
+  width: 80vw;
+  height: 100vh;
+  align-items: center;
+  justify-items: center;
+  display: flex;
+  margin: auto;
+  font-family: 'Abel', 'Patrick Hand', sans-serif;
+}
+
+.box {
+  background-color: rgba(139, 185, 211, 0.85);
+  color: #f5f5f5;
+  font-family: 'Abel', 'Patrick Hand', sans-serif;
+}
+
+/* Color Schema
+#070A0E = black
+#F5F5F5 = off-white
+#8BB9D3 = Infantry blue
+#4682B4 = metal blue
+#E11818 = Passion red
+*/

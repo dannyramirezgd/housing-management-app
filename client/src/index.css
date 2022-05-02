@@ -203,7 +203,7 @@ nav a:hover {
 }
 
 /* col-md */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 890px) {
   .col-md-auto {
     flex-grow: 1;
     flex-basis: 0;

@@ -4,24 +4,16 @@ export const QUERY_ME = gql`
   {
     me {
       _id
-      username
+      unitNumber
       email
-      friendCount
-      thoughts {
+      firstName
+      lastName
+      requests {
         _id
-        thoughtText
+        requestBody
+        unit
         createdAt
-        reactionCount
-        reactions {
-          _id
-          createdAt
-          reactionBody
-          username
-        }
-      }
-      friends {
-        _id
-        username
+        isComplete
       }
     }
   }
@@ -33,11 +25,6 @@ export const QUERY_ME_BASIC = gql`
       _id
       username
       email
-      friendCount
-      friends {
-        _id
-        username
-      }
     }
   }
 `;
@@ -45,9 +32,9 @@ export const QUERY_ME_BASIC = gql`
 export const QUERY_REQUESTS = gql`
   query {
     requests {
-        _id
-        unitNumber
-        requestCount
+      _id
+      unitNumber
+      requestCount
       requests {
         _id
         requestBody
