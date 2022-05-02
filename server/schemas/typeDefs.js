@@ -6,6 +6,8 @@ const typeDefs = gql`
     unitNumber: Int
     email: String
     password: String
+    firstName: String
+    lastName: String
     requestCount: Int
     requests: [Request]
   }
@@ -23,6 +25,8 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
+    firstName: String
+    lastName: String
     isAdmin: Boolean
     requestCount: Int
     unitCount: Int
@@ -42,7 +46,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    me(unitNumber: Int!): Unit
+    me: Unit
     # testing. DK
     admins: [Admin]
     admin(email: String!): Admin
