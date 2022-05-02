@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_ME = gql`
- {
+  {
     me {
       _id
       unitNumber
@@ -17,7 +17,7 @@ export const QUERY_ME = gql`
       }
     }
   }
-`
+`;
 
 export const QUERY_ME_BASIC = gql`
   {
