@@ -18,7 +18,7 @@ import Documents from './pages/Documents';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
-import UnitInfo from './pages/UnitInfo';
+
 import ContactUs from './pages/ContactUs';
 import About from './components/About';
 
@@ -53,7 +53,7 @@ function App() {
               <Route exact path="/login" component={Login} />
               <Route exact path="/adminHome" component={AdminHome} />
               <Route exact path="/profile/:id" component={Profile} />
-              <Route exact path="/unit/:id" component={UnitInfo} />
+
               <Route exact path="/admin" component={AdminHome} />
               <Route exact path="/amenities" component={Amenities} />
               <Route exact path="/documents" component={Documents} />
