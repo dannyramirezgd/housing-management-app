@@ -46,7 +46,6 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <Header />
-
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
@@ -60,7 +59,6 @@ function App() {
           <Route exact path="/about" component={About} />
           <Route component={NoMatch} />
         </Switch>
-
         <Footer />
       </Router>
     </ApolloProvider>
