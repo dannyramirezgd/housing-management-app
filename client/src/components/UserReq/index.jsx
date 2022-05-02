@@ -48,7 +48,7 @@ const UserReq = () => {
       const { data } = await postRequest({
         variables: { ...requestInfo },
       });
-
+      window.location.reload();
       console.log(data);
       //Auth.login(data.addUser.token);
     } catch (err) {
