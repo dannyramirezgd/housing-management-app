@@ -13,11 +13,11 @@ export const infos = [
   {
     image: 'slideThree.jpg',
     title: 'Danny Ramirez',
-    comment: "Danny's comments here!!",
+    comment: "This man's hand is very sweaty!",
   },
   {
     image: 'slideFour.jpg',
     title: 'Chris Backes',
-    comment: "Chris's comments here!!",
+    comment: "This is me in ten years with my beauty perms",
   },
 ];

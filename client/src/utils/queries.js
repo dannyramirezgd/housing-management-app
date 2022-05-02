@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_ME = gql`
- {
+  {
     me {
       _id
       unitNumber
@@ -9,6 +9,7 @@ export const QUERY_ME = gql`
       firstName
       lastName
       requests {
+        _id
         requestBody
         unit
         createdAt
@@ -16,7 +17,7 @@ export const QUERY_ME = gql`
       }
     }
   }
-`
+`;
 
 export const QUERY_ME_BASIC = gql`
   {

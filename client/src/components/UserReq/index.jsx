@@ -4,7 +4,7 @@ import { DELETE_REQUEST, POST_REQUEST } from '../../utils/mutations';
 import { QUERY_ME } from '../../utils/queries';
 import { Button, Card, Form } from 'react-bootstrap';
 import Loading from '../Loading';
-import styles from './UserReq.module.css'
+import styles from './UserReq.module.css';
 
 const UserReq = () => {
   const { loading, data } = useQuery(QUERY_ME);
@@ -17,7 +17,7 @@ const UserReq = () => {
     requestBody: '',
   });
 
-  console.log(requestInfo)
+  console.log(requestInfo);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -48,7 +48,7 @@ const UserReq = () => {
       const { data } = await postRequest({
         variables: { ...requestInfo },
       });
-
+      window.location.reload();
       console.log(data);
       //Auth.login(data.addUser.token);
     } catch (err) {
@@ -76,7 +76,9 @@ const UserReq = () => {
         <h4>Open Issues</h4>
         {unit.requests.map((request, index) => (
           <Card key={request._id} className={styles.card}>
-            <Card.Header className={styles.cardHeader}>Request {index + 1}</Card.Header>
+            <Card.Header className={styles.cardHeader}>
+              Request {index + 1}
+            </Card.Header>
             <Card.Body>
               <Card.Text>{request.requestBody}</Card.Text>
               <Button
@@ -89,7 +91,7 @@ const UserReq = () => {
                   )
                 }
               >
-                Mark as Completed
+                Cancel Request
               </Button>
             </Card.Body>
           </Card>
