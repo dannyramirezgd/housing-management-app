@@ -20,6 +20,7 @@ import Profile from './pages/Profile';
 import Login from './pages/Login';
 import UnitInfo from './pages/UnitInfo';
 import ContactUs from './pages/ContactUs';
+import About from './components/About';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -46,7 +47,7 @@ function App() {
       <Router>
         <div className="flex-column justify-content-center min-100-vh">
           <Header />
-          <div className='d-flex justify-content-center'>
+          <div className="d-flex justify-content-center">
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
@@ -57,7 +58,7 @@ function App() {
               <Route exact path="/amenities" component={Amenities} />
               <Route exact path="/documents" component={Documents} />
               <Route exact path="/contactUs" component={ContactUs} />
-
+              <Route exact path="/about" component={About} />
               <Route component={NoMatch} />
             </Switch>
           </div>
