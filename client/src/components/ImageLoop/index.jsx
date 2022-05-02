@@ -15,6 +15,7 @@ function ImageLoop() {
       <Marquee className={styles.marqCont} speed="50">
         {images.map((item) => (
           <img className={styles.marqueeImg} src={item} alt="marquee-img" />
+        ))}
       </Marquee>
   );
 }
