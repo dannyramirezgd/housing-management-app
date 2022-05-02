@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { DELETE_REQUEST } from '../../utils/mutations';
 import { Button, Card, Form } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Loading from '../Loading';
 import { POST_REQUEST } from '../../utils/mutations';
 import { QUERY_ME } from '../../utils/queries';
 
 const UserReq = () => {
-  const [postRequest, { error }] = useMutation(POST_REQUEST);
+  const [postRequest] = useMutation(POST_REQUEST);
   const [deleteRequest] = useMutation(DELETE_REQUEST);
   const { loading, data } = useQuery(QUERY_ME);
   const [requestData, setRequestData] = useState({
