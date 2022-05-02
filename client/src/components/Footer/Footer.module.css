@@ -7,9 +7,11 @@
   font-family: 'Abel', 'Shadows Into Light', 'Patrick Hand', Sans-serif;
   font-size: 1rem;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
 }
+
 
 .icon {
   padding-left: 0.5em;
@@ -28,3 +30,44 @@
   padding-left: 1em;
   padding-right: 0.3em;
 }
+.iconContainerSm{
+  display: none;
+}
+
+@media screen and (max-width: 890px) {
+  .footContainer{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .icon{
+    padding: 5px;
+    font-size: 25px;
+  }
+  .infoIcon{
+    padding: 5px;
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 575px){
+  .footerContainer{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .iconContainer{
+    display: none;
+  }
+  .iconContainerSm{
+    display: inline;
+  }
+  .icon{
+    max-width: 20px;
+    padding: 5px;
+  }
+
+  .infoIcon{
+    max-width: 20px;
+    padding: 10px;
+  }
+}
+

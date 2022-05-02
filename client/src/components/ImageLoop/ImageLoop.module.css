@@ -1,4 +1,3 @@
-
 .marqCont {
     display: block;
     width: 99vw;
@@ -9,4 +8,14 @@
 }
 .marqueeImg {
     margin: 20px;
+}
+@media screen and (max-width: 890px) {
+    .marqueeImg{
+        max-height: 100px;
+    }
+}
+@media screen and (max-width: 575px) {
+    .marqueeImg{
+        max-height: 100px;
+    }
 }

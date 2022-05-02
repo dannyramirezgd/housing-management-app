@@ -17,7 +17,7 @@ const Header = () => {
 
   return (
     <header
-      className="d-flex align-items-center justify-space-between-lg px-3 justify-center"
+      className="d-flex align-items-center justify-content-between px-3"
       style={{ backgroundColor: '#4682B4' }}
     >
       <div className={styles.font}>New House Life</div>
@@ -30,7 +30,7 @@ const Header = () => {
         />
       </Link>
 
-      <nav className="text-center">
+      <div>
         {Auth.loggedIn() ? (
           <>
             <Link className={styles.font} to="/" onClick={logout}>
@@ -44,7 +44,7 @@ const Header = () => {
             </Link>
           </>
         )}
-      </nav>
+      </div>
     </header>
   );
 };
