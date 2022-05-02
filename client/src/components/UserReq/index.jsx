@@ -27,6 +27,8 @@ const UserReq = () => {
   };
 
   const handleCompleteButton = async (requestId, unitId) => {
+
+    console.log(requestId, unitId)
     try {
       await deleteRequest({
         variables: { unitId, requestId },
@@ -68,6 +70,7 @@ const UserReq = () => {
   if (!unit) {
     return <h3>No Requests yet</h3>;
   }
+  console.log(unit)
 
   return (
     <>
@@ -85,7 +88,6 @@ const UserReq = () => {
                   handleCompleteButton(
                     request._id,
                     unit._id,
-                    request.requestCount,
                   )
                 }
               >

@@ -9,6 +9,7 @@ export const QUERY_ME = gql`
       firstName
       lastName
       requests {
+        _id
         requestBody
         unit
         createdAt
