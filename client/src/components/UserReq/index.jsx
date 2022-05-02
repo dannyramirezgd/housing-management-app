@@ -3,7 +3,6 @@ import { useMutation, useQuery } from '@apollo/client';
 import { DELETE_REQUEST, POST_REQUEST } from '../../utils/mutations';
 import { QUERY_ME } from '../../utils/queries';
 import { Button, Card, Form } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Loading from '../Loading';
 
 const UserReq = () => {
