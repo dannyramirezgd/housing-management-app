@@ -26,7 +26,7 @@ const Footer = () => {
         <FontAwesomeIcon icon={twitter} className={styles.icon} size='3x'/>
       </div>
       <div className={styles.iconContainer}>
-        <Link to="/amenities" >
+        <Link to="/amenities" className={styles.info}>
           <FontAwesomeIcon icon={amenities} className={styles.infoIcon} size='2x'/>
           AMENITIES
         </Link>
@@ -44,7 +44,7 @@ const Footer = () => {
         </Link>
       </div>
       <div className={styles.iconContainerSm}>
-        <Link to="/amenities" >
+        <Link to="/amenities" className={styles.info}>
           <FontAwesomeIcon icon={amenities} className={styles.infoIcon} size='2x'/>
         </Link>
         <Link to="/about" className={styles.info}>

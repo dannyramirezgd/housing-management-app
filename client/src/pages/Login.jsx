@@ -3,11 +3,13 @@ import { useMutation } from '@apollo/client';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 import { useSpring, animated } from 'react-spring';
+import { Form, Card, Button } from 'react-bootstrap';
+import styles from './Login.module.css';
 
 const Login = (props) => {
-  const styles = useSpring({
+  const styleSpring = useSpring({
     to: { marginLeft: 0 },
-    from: { marginLeft: -100000 },
+    from: { marginLeft: -100 },
   });
 
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -43,14 +45,12 @@ const Login = (props) => {
   };
 
   return (
-    <animated.div style={styles}>
-      <main className="flex-row justify-content-center mb-4 mt-4 min-100-vw">
+      <animated.main style={styleSpring} className="flex-row justify-content-center mb-4 mt-4 min-100-vw">
         <div className="col-12 col-md-6 w-100">
-          <div className="card m-3">
-            <h4 className="card-header">Login</h4>
-
-            <div className="card-body">
-              <form
+          <Card className={styles.cardFormatting}>
+            <Card.Header>Login</Card.Header>
+            <Card.Body>
+              <Form
                 className="d-flex justify-content-center flex-wrap"
                 onSubmit={handleFormSubmit}
               >
@@ -72,16 +72,15 @@ const Login = (props) => {
                   value={formState.password}
                   onChange={handleChange}
                 />
-                <button className="btn d-block w-100" type="submit">
+                <Button className="btn d-block w-100" type="submit">
                   Submit
-                </button>
-              </form>
+                </Button>
+              </Form>
               {error && <div>Login Failed</div>}
-            </div>
-          </div>
+            </Card.Body>
+          </Card>
         </div>
-      </main>
-    </animated.div>
+      </animated.main>
   );
 };
 
