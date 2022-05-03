@@ -13,3 +13,6 @@
 header {
     z-index: 999
 }
+ header a img {
+    transform: translateX(-50%) !important
+ }
