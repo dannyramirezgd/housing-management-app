@@ -8,7 +8,7 @@ export const infos = [
     image: 'slideTwo.jpg',
     title: "Daniel 'DK' Kim",
     comment:
-      "For six months, I studied and learned so much... yet I'm staring at my monitor DUMBFOUNDED!",
+      "For six months, I have studied and learned so much... yet I'm sitting here in front of my monitor DUMBFOUNDED!",
   },
   {
     image: 'slideThree.jpg',
@@ -18,6 +18,6 @@ export const infos = [
   {
     image: 'slideFour.jpg',
     title: 'Chris Backes',
-    comment: "This is me in ten years with my beauty perms",
+    comment: 'This is me in ten years with my beauty perms',
   },
 ];
