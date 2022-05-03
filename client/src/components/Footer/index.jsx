@@ -34,7 +34,7 @@ const Footer = () => {
           <FontAwesomeIcon icon={about} className={styles.infoIcon} size='2x'/>
           ABOUT
         </Link>
-        <Link to="/documents" className={styles.info}>
+        <Link to="/construction" className={styles.info}>
           <FontAwesomeIcon icon={documents} className={styles.infoIcon} size='2x'/>
           DOCUMENTS
         </Link>
@@ -50,7 +50,7 @@ const Footer = () => {
         <Link to="/about" className={styles.info}>
           <FontAwesomeIcon icon={about} className={styles.infoIcon} size='2x'/>
         </Link>
-        <Link to="/documents" className={styles.info}>
+        <Link to="/construction" className={styles.info}>
           <FontAwesomeIcon icon={documents} className={styles.infoIcon} size='2x'/>
         </Link>
         <Link to="/contactUs" className={styles.info}>
