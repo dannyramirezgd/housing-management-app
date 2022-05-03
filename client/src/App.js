@@ -18,7 +18,7 @@ import Documents from './pages/Documents';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
-
+import Construction from './components/Construction';
 import ContactUs from './pages/ContactUs';
 import About from './components/About';
 
@@ -57,6 +57,7 @@ function App() {
           <Route exact path="/documents" component={Documents} />
           <Route exact path="/contactUs" component={ContactUs} />
           <Route exact path="/about" component={About} />
+          <Route exact path="/construction" component={Construction} />
           <Route component={NoMatch} />
         </Switch>
         <Footer />
