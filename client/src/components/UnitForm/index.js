@@ -25,10 +25,10 @@ const AddUnit = () => {
       event.preventDefault();
       event.stopPropagation();
     }
-    console.log(unitInfo)
+
     try {
       const { data } = await addUnit({
-        variables: { ...unitInfo },
+        variables: { ...unitInfo, unitNumber: parseInt(unitInfo.unitNumber) },
       });
       console.log(data);
     } catch (err) {
