@@ -32,7 +32,7 @@ const Amenity = () => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      <Neighborhood />;
+      <Neighborhood />
     </>
   );
 };
