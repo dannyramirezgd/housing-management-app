@@ -99,7 +99,7 @@ const ContactUs = ({ history }) => {
   };
 
   return (
-    <div
+    <main
       style={{
         backgroundImage: `url(${bgImg})`,
         backgroundPosition: 'center',
@@ -298,7 +298,7 @@ const ContactUs = ({ history }) => {
           </Modal>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

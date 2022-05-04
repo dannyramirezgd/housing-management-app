@@ -4,9 +4,9 @@ const Documents = () => {
 
 
   return (
-    <div>
+    <main>
       This is the Documents page
-    </div>
+    </main>
   );
 };
 

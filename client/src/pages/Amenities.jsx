@@ -4,12 +4,12 @@ import styles from './Amenities.module.css';
 
 const Amenities = () => {
   return (
-    <>
+    <main>
       <div className={styles.mainAmenities}>
         This is why you want to become a resident!
       </div>
       <Amenity />
-    </>
+    </main>
   );
 };
 
