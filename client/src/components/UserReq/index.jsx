@@ -17,7 +17,6 @@ const UserReq = () => {
     requestBody: '',
   });
 
-  console.log(requestInfo);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
