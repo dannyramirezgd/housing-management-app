@@ -20,6 +20,7 @@
 .carouselImg {
   margin: auto;
   padding: auto;
+  max-height: 75vh;
 }
 
 .box {
