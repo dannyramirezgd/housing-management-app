@@ -4,9 +4,9 @@ const Amenities = () => {
 
 
   return (
-    <div>
+    <main>
       This is your Amenities page
-    </div>
+    </main>
   );
 };
 

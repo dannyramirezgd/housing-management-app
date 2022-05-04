@@ -34,6 +34,9 @@ html,
 body {
   min-height: 100vh;
 }
+main {
+  min-height: calc(100vh - 168px)
+}
 
 body {
   margin: 0;
