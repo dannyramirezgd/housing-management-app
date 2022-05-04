@@ -1,0 +1,32 @@
+.myWidth {
+  width: 90vw;
+  max-width: 90vw;
+}
+
+.myHeight {
+  height: 80vh;
+  max-height: 80vh;
+}
+
+.myFrame {
+  width: 100%;
+  height: 100%;
+}
+
+.title {
+  font-family: 'abel';
+  text-shadow: 1px 1px 1px black;
+}
+
+.iconBody {
+  font-family: 'Shadows into Light';
+  text-shadow: 1px 1px 1px var(--secondary);
+}
+
+
+.icon:hover {
+  transform: rotate(360deg);
+  transition: 1s;
+  color: rgba(140, 29, 140, 0.771);
+  cursor: pointer;
+}
