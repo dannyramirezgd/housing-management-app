@@ -124,7 +124,7 @@ const ContactUs = ({ history }) => {
           <Figure>
             <Figure.Image
               className="mt-3"
-              width={275}
+              width={130}
               alt="a person sending an email"
               src={contactPic}
               style={{ border: '2px solid #blue' }}
@@ -220,7 +220,7 @@ const ContactUs = ({ history }) => {
               </label>
               <div className="input-group mb-3">
                 <textarea
-                  style={{ resize: 'none', height: '250px' }}
+                  style={{ resize: 'none', height: '100px' }}
                   className={
                     errorEmail
                       ? 'form-control border border-danger'
