@@ -1,6 +1,8 @@
 # housing-management-app
 ![License](https://img.shields.io/github/license/dannyramirezgd/housing-management-app)
 
+https://ancient-journey-45474.herokuapp.com/
+
 ## Description
 
 New Home Life is a website for apartment renters to interact with building management by making maintenace or service requests and (in the future), posting rental payments.
@@ -34,6 +36,16 @@ The database has two related tables, and one subtable.
 ## License
 
 This project is licensed under the MIT license
+
+## Website
+
+![Home](./assets/home.png)
+
+![Login](./assets/login.png)
+
+![Admin](./assets/Admin.png)
+
+![Unit](./assets/Unit.png)
 
 ## Contact
 
