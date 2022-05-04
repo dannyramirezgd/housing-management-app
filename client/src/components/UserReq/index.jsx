@@ -7,7 +7,7 @@ import Loading from '../Loading';
 import styles from './UserReq.module.css';
 
 const UserReq = () => {
-  const { loading, data } = useQuery(QUERY_ME);
+  const { loading, data, refetch: queryMe } = useQuery(QUERY_ME);
   const [postRequest] = useMutation(POST_REQUEST);
   const [deleteRequest] = useMutation(DELETE_REQUEST);
 
@@ -17,7 +17,6 @@ const UserReq = () => {
     requestBody: '',
   });
 
-  console.log(requestInfo);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -50,7 +49,7 @@ const UserReq = () => {
       const { data } = await postRequest({
         variables: { ...requestInfo },
       });
-      window.location.reload();
+      queryMe()
       console.log(data);
       //Auth.login(data.addUser.token);
     } catch (err) {
