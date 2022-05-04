@@ -10,7 +10,8 @@ const Neighborhood = () => {
         <iframe
           src="https://secure-savannah-19572.herokuapp.com/"
           title="WAG!"
-          width="70%"
+          width="1500"
+          max-width="90%"
           height="1000px"
         />
       </div>

@@ -1,6 +1,5 @@
 .bigContainer {
-  max-height: 100vh;
-  height: 100vh;
+  display: flex;
   background-image: url(../../image/NewHouseLifeStockPhoto_1.jpg);
   max-width: 100%;
   background-position: center;
@@ -15,8 +14,8 @@
   align-items: center;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.5);
-  height: 100%;
-  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
 }
 
 .timer {
