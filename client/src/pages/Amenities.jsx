@@ -1,12 +1,15 @@
 import React from 'react';
+import Amenity from '../components/Amenity';
+import styles from './Amenities.module.css';
 
 const Amenities = () => {
-
-
   return (
-    <div>
-      This is your Amenities page
-    </div>
+    <>
+      <div className={styles.mainAmenities}>
+        This is why you want to become a resident!
+      </div>
+      <Amenity />
+    </>
   );
 };
 
