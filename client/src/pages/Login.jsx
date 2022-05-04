@@ -8,9 +8,10 @@ import styles from './Login.module.css';
 
 const Login = (props) => {
   const styleSpring = useSpring({
-    to: { marginLeft: 0 },
-    from: { marginLeft: -100 },
-  });
+		from: { x: -2000, opacity: 0 },
+		to: { x: 0, opacity: 1 },
+		config: { frequency: 3, damping: 0.5 }
+	});
 
   const [formState, setFormState] = useState({ email: '', password: '' });
 
@@ -48,7 +49,7 @@ const Login = (props) => {
       <animated.main style={styleSpring} className="flex-row justify-content-center">
         <div className="mx-4 pt-4">
           <Card className={styles.cardFormatting}>
-            <Card.Header>Login</Card.Header>
+            <Card.Header className={styles.cardHeader}><h5>Login</h5></Card.Header>
             <Card.Body>
               <Form
                 className="d-flex justify-content-center flex-wrap"

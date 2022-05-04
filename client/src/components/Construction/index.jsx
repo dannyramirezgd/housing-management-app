@@ -45,7 +45,7 @@ const Construction = ({ date }) => {
 
   return (
     <>
-      <div className={styles.bigContainer}>
+      <main className={styles.bigContainer}>
         <div className={styles.smallContainer}>
           <div>
             <img src={cone} alt="construction cone" width="150px" />
@@ -83,7 +83,7 @@ const Construction = ({ date }) => {
             </section>
           </div>
         </div>
-      </div>
+      </main>
     </>
   );
 };

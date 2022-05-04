@@ -1,4 +1,9 @@
 .cardFormatting {
     max-width: 800px;
-    margin: auto
+    margin: auto;
+    border: none
+}
+
+.cardHeader {
+    background-color: var(--secondary);
 }
