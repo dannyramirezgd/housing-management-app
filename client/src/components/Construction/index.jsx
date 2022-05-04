@@ -2,16 +2,17 @@ import cone from '../../image/cone.jpg';
 import styles from './Construction.module.css';
 import { useState, useRef, useEffect } from 'react';
 
-const Construction = () => {
+const Construction = ({ date }) => {
   const [timerDays, setTimerDays] = useState('00');
   const [timerHours, setTimerHours] = useState('00');
   const [timerMinutes, setTimerMinutes] = useState('00');
   const [timerSeconds, setTimerSeconds] = useState('00');
 
   let interval = useRef();
+  const initialDate = date ? date : 'May 30, 2022 00:00:00';
 
   const startTimer = () => {
-    const countDownDate = new Date('May 30, 2022 00:00:00').getTime();
+    const countDownDate = new Date(initialDate).getTime();
 
     interval = setInterval(() => {
       const now = new Date().getTime();
