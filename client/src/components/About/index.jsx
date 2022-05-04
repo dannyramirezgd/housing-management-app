@@ -4,11 +4,12 @@ import styles from './About.module.css';
 
 const About = () => {
   return (
-    <div className={styles.Ccontainer}>
-      <Carousel className={styles.Ccarousel}>
+    <main className={styles.Ccontainer}>
+      <Carousel className={`${styles.Ccarousel} pt-2`}>
         <Carousel.Item>
           <img
-            className="d-block w-100"
+
+            className={`${styles.carouselImg} d-block w-100`}
             src={require(`../../image/about/${infos[0].image}`)}
             alt="First slide"
           />
@@ -19,7 +20,7 @@ const About = () => {
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block w-100"
+            className={`${styles.carouselImg} d-block w-100`}
             src={require(`../../image/about/${infos[1].image}`)}
             alt="Second slide"
           />
@@ -31,7 +32,7 @@ const About = () => {
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block w-100"
+            className={`${styles.carouselImg} d-block w-100`}
             src={require(`../../image/about/${infos[2].image}`)}
             alt="Third slide"
           />
@@ -43,7 +44,7 @@ const About = () => {
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block w-100"
+            className={`${styles.carouselImg} d-block w-100`}
             src={require(`../../image/about/${infos[3].image}`)}
             alt="Fourth slide"
           />
@@ -53,7 +54,7 @@ const About = () => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-    </div>
+    </main>
   );
 };
 

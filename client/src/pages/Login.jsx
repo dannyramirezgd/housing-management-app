@@ -45,8 +45,8 @@ const Login = (props) => {
   };
 
   return (
-      <animated.main style={styleSpring} className="flex-row justify-content-center mb-4 mt-4 min-100-vw">
-        <div className="col-12 col-md-6 w-100">
+      <animated.main style={styleSpring} className="flex-row justify-content-center">
+        <div className="mx-4 pt-4">
           <Card className={styles.cardFormatting}>
             <Card.Header>Login</Card.Header>
             <Card.Body>
