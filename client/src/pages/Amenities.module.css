@@ -1,0 +1,18 @@
+.mainAmenities {
+  background-image: url('../image/amenities/main.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+  width: 100%;
+  height: 70vh;
+  text-align: center;
+  font-size: 4rem;
+  color: #8bb9d3;
+  text-shadow: 2px 2px 1px black;
+  font-family: 'Shadows Into Light', 'Abel', sans-serif;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-bottom: 30px;
+}

@@ -27,16 +27,19 @@ const ContactUs = ({ history }) => {
   const form = useRef();
 
   const handleSubmit = async (e) => {
+    const serviceId = process.env.REACT_APP_SERVICE_ID;
+    const templateId = process.env.REACT_APP_CONTACT_TEMP_ID;
+    const serviceKey = process.env.REACT_APP_KEY;
     e.preventDefault();
     try {
       if (!errorEmail && !errorName && !errorMsg) {
         console.log('Submit Form', formState);
         // await emailjs.sendForm();
         const emailSent = await emailjs.sendForm(
-          'service_n14tqlb',
-          'template_xr1nyq9',
+          serviceId,
+          templateId,
           form.current,
-          '0gvWyx6zur9zJ2n3b',
+          serviceKey,
         );
 
         if (emailSent) {
@@ -109,12 +112,11 @@ const ContactUs = ({ history }) => {
         fontSize: '1.5rem',
       }}
     >
-
         <div className="container d-flex flex-column align-items-center justify-content-center">
           <Figure>
             <Figure.Image
               className="mt-3"
-              width={275}
+              width={130}
               alt="a person sending an email"
               src={contactPic}
               style={{ border: '2px solid #blue' }}
@@ -210,7 +212,7 @@ const ContactUs = ({ history }) => {
               </label>
               <div className="input-group mb-3">
                 <textarea
-                  style={{ resize: 'none', height: '250px' }}
+                  style={{ resize: 'none', height: '100px' }}
                   className={
                     errorEmail
                       ? 'form-control border border-danger'
@@ -275,7 +277,8 @@ const ContactUs = ({ history }) => {
                 Allow us 365 business days to fulfill your request.
               </Alert.Heading>
               <hr />
-              <button className="btn"
+              <button
+                className="btn"
                 onClick={() => {
                   setShow(false);
                   window.location.reload();

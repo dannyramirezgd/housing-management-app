@@ -1,0 +1,44 @@
+.bigContainer {
+  max-height: 100vh;
+  height: 100vh;
+  background-image: url(../../image/NewHouseLifeStockPhoto_1.jpg);
+  max-width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.smallContainer {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+}
+
+.timer {
+  border: 1px solid white;
+  border-radius: 3px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 1em;
+  text-align: center;
+  max-width: 100%;
+}
+
+.title {
+  font-family: 'abel', sans-serif;
+  font-size: 5rem;
+  font-weight: bolder;
+  text-shadow: 1px 1px 1px black;
+}
+
+@media screen and (max-width: 800px) {
+  .timer {
+    border: none;
+    display: block;
+  }
+}
