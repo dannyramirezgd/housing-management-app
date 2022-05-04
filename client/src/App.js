@@ -21,6 +21,7 @@ import Login from './pages/Login';
 import Construction from './components/Construction';
 import ContactUs from './pages/ContactUs';
 import About from './components/About';
+import Payment from './components/Payment';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -58,6 +59,7 @@ function App() {
           <Route exact path="/contactUs" component={ContactUs} />
           <Route exact path="/about" component={About} />
           <Route exact path="/construction" component={Construction} />
+          <Route exact path="/payment" component={Payment} />
           <Route component={NoMatch} />
         </Switch>
         <Footer />
