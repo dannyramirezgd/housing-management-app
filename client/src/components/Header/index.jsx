@@ -20,7 +20,7 @@ const Header = () => {
       className="d-flex align-items-center justify-content-between px-3"
       style={{ backgroundColor: '#4682B4' }}
     >
-      <div className={styles.font}>New House Life</div>
+      <div className={styles.fontTitle}>New House Life</div>
       <Link to="/">
         <animated.img
           style={logoStyle}

@@ -9,6 +9,12 @@
     color: #F5F5F5;
     padding: 10px;
 }
+.fontTitle {
+    font-family: 'Shadows Into Light', 'Patrick Hand', 'Abel', Sans-serif; 
+    font-size: 1.5rem;
+    color: #F5F5F5;
+    padding: 10px;
+}
 
 header {
     z-index: 999
@@ -16,3 +22,10 @@ header {
  header a img {
     transform: translateX(-50%) !important
  }
+
+
+ @media screen and (max-width: 575px) {
+    .fontTitle{
+        display: none;
+    }
+  }
