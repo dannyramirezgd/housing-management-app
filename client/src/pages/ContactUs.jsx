@@ -9,6 +9,7 @@ import {
 import bgImg from '../image/NewHouseLifeStockPhoto_6.jpg';
 import contactPic from '../image/contatus.jpg';
 import { Figure, Alert, Modal } from 'react-bootstrap';
+import styles from './ContactUs.module.css';
 
 const ContactUs = ({ history }) => {
   const [formState, setFormState] = useState({
@@ -105,21 +106,12 @@ const ContactUs = ({ history }) => {
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        width: '100%',
-        height: '100vh',
         fontFamily: 'Gruppo',
         color: '#f5f5f5',
         fontWeight: 'bold',
         fontSize: '1.5rem',
       }}
     >
-      <div
-        style={{
-          backgroundColor: 'rgba(0,0,0,0.5)',
-          width: '100%',
-          height: '100vh',
-        }}
-      >
         <div className="container d-flex flex-column align-items-center justify-content-center">
           <Figure>
             <Figure.Image
@@ -139,7 +131,7 @@ const ContactUs = ({ history }) => {
           <form
             ref={form}
             id="contact-form"
-            className="col-6"
+            className={styles.formEl}
             onSubmit={handleSubmit}
           >
             <div className="form-group">
@@ -297,7 +289,6 @@ const ContactUs = ({ history }) => {
             </Alert>
           </Modal>
         </div>
-      </div>
     </main>
   );
 };
