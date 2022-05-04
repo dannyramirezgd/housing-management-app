@@ -5,7 +5,7 @@ import styles from './Amenities.module.css';
 const Amenities = () => {
   return (
     <main>
-      <div className={styles.mainAmenities}>
+      <div className={`${styles.mainAmenities} mt-4`}>
         This is why you want to become a resident!
       </div>
       <Amenity />
