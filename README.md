@@ -43,9 +43,9 @@ This project is licensed under the MIT license
 
 ![Login](./assets/login.png)
 
-![Admin](./assets/Admin.png)
+![Admin](./assets/admin.png)
 
-![Unit](./assets/Unit.png)
+![Unit](./assets/unit.png)
 
 ## Contact
 

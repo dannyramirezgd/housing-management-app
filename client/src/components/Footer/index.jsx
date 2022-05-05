@@ -24,19 +24,19 @@ const Footer = () => {
       <div>
         {/* !! must clear this out post project! and deploy to heroku */}
         <Link
-          to={{ pathname: 'https://www.facebook.com/alexander.j.medeiros' }}
+          to={{ pathname: 'https://facebook.com' }}
           target="_blank"
         >
           <FontAwesomeIcon icon={facebook} className={styles.icon} size="3x" />
         </Link>
         <Link
-          to={{ pathname: 'https://www.instagram.com/ethanwager/?hl=en' }}
+          to={{ pathname: 'https://instagram.com' }}
           target="_blank"
         >
           <FontAwesomeIcon icon={instagram} className={styles.icon} size="3x" />
         </Link>
         <Link
-          to={{ pathname: 'https://www.linkedin.com/in/sebastian-fave/' }}
+          to={{ pathname: 'https://www.twitter.com' }}
           target="_blank"
         >
           <FontAwesomeIcon icon={twitter} className={styles.icon} size="3x" />
