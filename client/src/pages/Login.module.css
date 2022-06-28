@@ -4,6 +4,13 @@
     border: none
 }
 
+p {
+   max-width: 800px;
+   margin: auto;
+   border: none; 
+    text-align: center;
+}
+
 .cardHeader {
     background-color: var(--secondary);
 }

@@ -81,6 +81,16 @@ const Login = (props) => {
             </Card.Body>
           </Card>
         </div>
+        <div>
+          <p>
+            TestUnit Email: TestUnit@test.com
+            TestUnit Password: password
+          </p>
+          <p>
+            TestAdmin Email: TestAdmin@test.com
+            TestAdmin Password: Password
+          </p>
+        </div>
       </animated.main>
   );
 };
